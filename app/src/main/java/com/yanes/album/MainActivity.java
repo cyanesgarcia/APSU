@@ -23,6 +23,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.album){
+            Intent intent=new Intent(this,States.class);
+            startActivity(intent);
 
         }else if(view.getId() == R.id.about_us){
             Intent intent=new Intent(this,Aboutus.class);

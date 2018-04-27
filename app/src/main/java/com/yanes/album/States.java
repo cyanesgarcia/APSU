@@ -22,7 +22,7 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.states);
+        setContentView(R.layout.s_t);
 
         ListView lv= (ListView) findViewById(R.id.listview);
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(
