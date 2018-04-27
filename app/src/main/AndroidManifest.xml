@@ -21,6 +21,7 @@
         <activity android:name=".States"/>
         <activity android:name=".type"/>
         <activity android:name=".Resources"/>
+        <activity android:name=".Info"/>
     </application>
 
 </manifest>

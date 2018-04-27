@@ -36,6 +36,6 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
         Type = (String) adapterView.getItemAtPosition(i);
 
         Intent intent=new Intent(this,Info.class);
-        startActivity(intent);
+       startActivity(intent);
     }
 }
