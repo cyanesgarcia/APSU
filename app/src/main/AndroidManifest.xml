@@ -19,6 +19,7 @@
 
         <activity android:name=".Aboutus"/>
         <activity android:name=".States"/>
+        <activity android:name=".type"/>
     </application>
 
 </manifest>
