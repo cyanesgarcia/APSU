@@ -12,7 +12,7 @@ import android.widget.ListView;
  * Created by LidiayClaudia on 28/04/2018.
  */
 
-public class States extends Activity {
+public class States extends Activity implements AdapterView.OnItemClickListener{
     public static String State;
 
     static final String[] STATES={
@@ -29,9 +29,16 @@ public class States extends Activity {
                 this, android.R.layout.simple_list_item_1, STATES
         );
         lv.setAdapter(adapter);
-
+        lv.setOnItemClickListener(this);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        State = (String) adapterView.getItemAtPosition(i);
+        Intent intent=new Intent(this,type.class);
+        startActivity(intent);
+    }
 
 
 }
