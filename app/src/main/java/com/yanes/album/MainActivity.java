@@ -1,5 +1,6 @@
 package com.yanes.album;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view.getId() == R.id.album){
 
         }else if(view.getId() == R.id.about_us){
+            Intent intent=new Intent(this,Aboutus.class);
+            startActivity(intent);
+
 
         }else if(view.getId() == R.id.resources){
 
