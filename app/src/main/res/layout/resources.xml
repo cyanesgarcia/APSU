@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capitals"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="California --> https://owlcation.com/humanities/Why-Sacramento-Is-The-Capital-Of-California" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Florida --> http://www.floridamemory.com/blog/2013/03/04/tallahassee-designated-capital-of-the-florida-territory/" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Georgia --> https://www.georgiaencyclopedia.org/articles/counties-cities-neighborhoods/georgias-historic-capitals" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hawaii --> https://www.encyclopedia.com/places/united-states-and-canada/us-political-geography/honolulu" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New York --> https://www.quora.com/Why-is-Albany-the-capital-of-New-York" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tennessee --> https://www.quora.com/How-did-Nashville-become-Tennessees-state-capital" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texas --> http://www.austinrelocationguide.com/History-of-Austin/" />
+
+
+</LinearLayout>
