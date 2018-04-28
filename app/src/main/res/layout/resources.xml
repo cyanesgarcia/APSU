@@ -79,4 +79,41 @@
         android:layout_height="wrap_content"
         android:text="Texas --> https://www.guidelive.com/food-and-drink/2015/01/15/12-essential-texas-foods-and-drinks-and-where-to-find-them" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Places"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="California --> https://travel.usnews.com/rankings/best-places-to-visit-in-california/" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Florida --> http://www.touropia.com/best-places-to-visit-in-florida/" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Georgia --> https://vacationidea.com/destinations/best-places-to-visit-in-georgia.html" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hawaii --> http://www.touropia.com/best-places-to-visit-in-hawaii/" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New York --> https://www.planetware.com/tourist-attractions-/new-york-city-us-ny-nyc.htm" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tennessee --> https://www.planetware.com/tourist-attractions/tennessee-ustn.htm" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texas --> https://www.planetware.comroid/tourist-attractions/texas-ustx.htm" />
+
 </LinearLayout>
