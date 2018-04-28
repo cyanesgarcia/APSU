@@ -40,4 +40,43 @@
         android:text="Texas --> http://www.austinrelocationguide.com/History-of-Austin/" />
 
 
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Foods and Drinks"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="California --> https://matadornetwork.com" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Florida --> https://www.google.com/amp/www.onlyinyourstate.com/florida/favorite-foods-fl/amp/#ampshare=http://www.onlyinyourstate.com/florida/favorite-foods-fl/" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Georgia --> http://www.katherinebelarmino.com/2016/05/georgian-cuisine-traditional-foods.html?m=1" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hawaii --> https://www.huffingtonpost.com/2015/03/04/hawaii-food-bucket-list_n_6738518.html" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New York --> https://www.bbcgoodfood.com/howto/guide/top-10-foods-try-new-york" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tennessee --> https://theculturetrip.com/north-america/usa/tennessee/articles/11-iconic-tennessee-foods-you-need-to-try/" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Texas --> https://www.guidelive.com/food-and-drink/2015/01/15/12-essential-texas-foods-and-drinks-and-where-to-find-them" />
+
 </LinearLayout>
