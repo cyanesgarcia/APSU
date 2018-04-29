@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#BFFBBE">
+    android:background="#F7D358">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,8 +18,9 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:layout_marginTop="8dp"
-            android:text="Lidia Yanes Garcia \n
-    lyanesgarcia" />
+            android:text="Lidia Yanes Garcia "
+            android:textSize="25sp"
+            android:textColor="#045FB4"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,8 +28,29 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:layout_marginTop="8dp"
-            android:text="Claudia Yanes Garcia \n
-    cyanesgarcia" />
+            android:text="Claudia Yanes Garcia"
+            android:textSize="25sp"
+            android:textColor="#045FB4"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <ImageView
+            android:layout_width="105dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:src="@drawable/user"/>
+
+        <ImageView
+            android:layout_width="105dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:src="@drawable/user" />
+
     </LinearLayout>
 
     <TextView
@@ -37,6 +59,7 @@
         android:layout_marginTop="45dp"
         android:layout_marginLeft="10dp"
         android:text="This project is the final assignment for CSCI 4020, the second course of Mobile App"
-        />
+        android:textSize="20sp"
+        android:textColor="#0B0B3B"/>
 
 </LinearLayout>
