@@ -52,7 +52,7 @@ int total =0;
 
         }else if(view.getId() == R.id.game){
         Intent intent=new Intent(this,Game.class);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE_ADD);
 
 
     }
@@ -60,8 +60,8 @@ int total =0;
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_ADD) {
 
+        if (requestCode == REQUEST_CODE_ADD) {
 
             if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Cancelled ", Toast.LENGTH_SHORT).show();
