@@ -19,10 +19,10 @@ int total =0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         //toolbar=(Toolbar) findViewById(R.id.toolbar);
-        setActionBar(toolbar);
+        //setActionBar(toolbar);
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);
