@@ -12,11 +12,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import java.util.ArrayList;
+
 public class MainActivity extends Activity implements View.OnClickListener{
     private static final int REQUEST_CODE_ADD=100;
     public static String Activity_KEY ="activity";
+    public static ArrayList<String> check = new ArrayList<>();
 Toolbar toolbar;
 public static int total =0;
+
+    @Override
+    protected void onResume() {
+        toolbar.setTitle(total+" coins");
+        super.onResume();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +34,7 @@ public static int total =0;
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.coin);
-        toolbar.setTitle(total+" coins");
+
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);

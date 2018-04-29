@@ -24,7 +24,7 @@ import java.util.List;
 public class Info extends ListActivity {
     private DBDataSource dbDataSource;
     private AlertDialog dialog;
-    private String card_key="  ";
+    private String card_key=" ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,6 @@ public class Info extends ListActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         ArrayAdapter adapter = (ArrayAdapter<Album>) getListAdapter();
         final Album fin = (Album) adapter.getItem(position);
-        final ArrayList<String> check = null;
 
         dialog.setTitle("Do you want to buy this card?");
         dialog.setButton("Yes", new DialogInterface.OnClickListener(){
@@ -62,8 +61,8 @@ public class Info extends ListActivity {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-for(int ii=0; ii<check.size();ii++){
-    if(fin.getName() == check.get(ii)){
+for(int ii=0; ii<MainActivity.check.size();ii++){
+    if(fin.getName().equals(MainActivity.check.get(ii))){
         card_key="Have it";
         break;
     }else{
@@ -75,7 +74,7 @@ for(int ii=0; ii<check.size();ii++){
     if(!card_key.equals("Have it")) {
 
 
-        check.add(fin.getName());
+        MainActivity.check.add(fin.getName());
         MainActivity.total -= 5;
     }else{
         card_key="  ";
