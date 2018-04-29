@@ -24,7 +24,7 @@ import java.util.List;
 public class Info extends ListActivity {
     private DBDataSource dbDataSource;
     private AlertDialog dialog;
-    private String card_key="  ";
+    private int card_key= 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class Info extends ListActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         ArrayAdapter adapter = (ArrayAdapter<Album>) getListAdapter();
         final Album fin = (Album) adapter.getItem(position);
-        final ArrayList<String> check = null;
+
 
         dialog.setTitle("Do you want to buy this card?");
         dialog.setButton("Yes", new DialogInterface.OnClickListener(){
@@ -62,23 +62,24 @@ public class Info extends ListActivity {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-for(int ii=0; ii<check.size();ii++){
-    if(fin.getName() == check.get(ii)){
-        card_key="Have it";
+
+                        for(int ii=0; ii<MainActivity.check.size();ii++){
+    if(fin.getName().equals(MainActivity.check.get(ii))){
+        card_key=1;
         break;
     }else{
-        card_key="  ";
+        card_key=100;
     }
 }
 
-                     if(MainActivity.total>=5 || card_key.equals("Have it")){
-    if(!card_key.equals("Have it")) {
+                     if(MainActivity.total>=5 || card_key==1){
+    if(card_key!=1) {
 
 
-        check.add(fin.getName());
+        MainActivity.check.add(fin.getName());
         MainActivity.total -= 5;
     }else{
-        card_key="  ";
+        card_key=100;
     }
 
                              builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName()+"</p>" + "<p><b>State: </b>" + fin.getState()+"</p>" +
@@ -93,14 +94,14 @@ for(int ii=0; ii<check.size();ii++){
                              builder. setTitle("Info");
                              builder.create().show();
                          }
-                     }
+                 }
 
 
                 });
                 dialog.setButton2("No",new DialogInterface.OnClickListener(){
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                card_key="Cancel";
+                                card_key=100;
 
                             }
                         });
