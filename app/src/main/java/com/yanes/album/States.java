@@ -19,7 +19,7 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
             "California(CA)","Florida(FL)","Georgia(GA)","Hawaii(HI)",
             "New York(NY)", "Tennessee(TN)", "Texas(TX)",
     };
-    Integer [] ima ={R.drawable.ny, R.drawable.ca,R.drawable.ny, R.drawable.ca, R.drawable.ny, R.drawable.ca,R.drawable.ca};
+    Integer [] ima ={R.drawable.ca, R.drawable.fl,R.drawable.ga, R.drawable.hi, R.drawable.ny, R.drawable.tn,R.drawable.tx};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
