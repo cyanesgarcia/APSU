@@ -17,7 +17,7 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
     static final String[] TYPES = {
             "Capital", "Foods & Drinks", "Places",
     };
-    Integer [] ima={R.drawable.ca, R.drawable.fl,R.drawable.ga};
+    Integer [] ima={R.drawable.capitals, R.drawable.food,R.drawable.places};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
