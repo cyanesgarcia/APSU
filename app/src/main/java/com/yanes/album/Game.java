@@ -37,8 +37,6 @@ public class Game extends Activity implements View.OnClickListener {
     ArrayList<Integer> my_sequence = new ArrayList<>();
     int count;
     int count1=1;
-    int count11 = 3;
-    int count2=700;
     ImageButton im;
     boolean equal= true;
 
@@ -258,7 +256,7 @@ public class Game extends Activity implements View.OnClickListener {
         String str_high = Integer.toString(high_score);
         str_high = str_high.trim();
         Intent intent = new Intent(this, MainActivity.class);
-        //intent.putExtra(MainActivity.Activity_KEY, str_high);
+        intent.putExtra(MainActivity.Activity_KEY, str_high);
         setResult(RESULT_OK, intent);
         super.onBackPressed();
     }
