@@ -45,7 +45,6 @@
         android:layout_marginTop="8dp"
         android:text="About_us"
         android:layout_weight="1"
-
         />
     </LinearLayout>
             <LinearLayout

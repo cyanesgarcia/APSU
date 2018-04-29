@@ -18,6 +18,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
         about_us.setOnClickListener(this);
         Button resource= (Button) findViewById(R.id.resources);
         resource.setOnClickListener(this);
+        Button game= (Button) findViewById(R.id.game);
+        game.setOnClickListener(this);
     }
 
     @Override
@@ -36,7 +38,12 @@ public class MainActivity extends Activity implements View.OnClickListener{
             startActivity(intent);
 
 
-        }
+        }else if(view.getId() == R.id.game){
+        Intent intent=new Intent(this,Game.class);
+        startActivity(intent);
+
+
+    }
 
     }
 }
