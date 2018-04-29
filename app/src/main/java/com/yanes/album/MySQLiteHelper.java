@@ -33,6 +33,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             for(int i=0; i<v.length; i++){
                 names[i] = v[i].toString();
             }
+
             return names;
         }
 
