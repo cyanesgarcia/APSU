@@ -14,9 +14,9 @@ Toolbar toolbar;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        
-        toolbar=(Toolbar) findViewById(R.id.toolbar);
-        setActionBar(toolbar);
+
+        //toolbar=(Toolbar) findViewById(R.id.toolbar);
+        //setActionBar(toolbar);
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);

@@ -14,7 +14,9 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
-        android:theme="@style/Theme.AppCompat.Light"></android.support.v7.widget.Toolbar>
+        android:theme="@style/Theme.AppCompat.Light">
+
+    </android.support.v7.widget.Toolbar>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,14 +29,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:weightSum="2">
 
     <Button
         android:id="@+id/album"
         android:layout_width="160dp"
-        android:layout_height="match_parent"
+        android:layout_height="160dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -44,7 +46,7 @@
         <Button
             android:id="@+id/game"
             android:layout_width="160dp"
-            android:layout_height="match_parent"
+            android:layout_height="160dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -56,13 +58,13 @@
     </LinearLayout>
             <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="2">
                 <Button
                     android:id="@+id/about_us"
                     android:layout_width="160dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="160dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
@@ -72,7 +74,7 @@
                 <Button
                     android:id="@+id/resources"
                     android:layout_width="160dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="160dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
@@ -82,7 +84,7 @@
                     android:background="#38f2ff"/>
 
 
-    </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
 </LinearLayout>
 </ScrollView>
