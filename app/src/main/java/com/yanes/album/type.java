@@ -17,6 +17,7 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
     static final String[] TYPES = {
             "Capital", "Foods & Drinks", "Places",
     };
+    Integer [] ima={R.drawable.ca, R.drawable.fl,R.drawable.ga};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +25,14 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
         setContentView(R.layout.s_t);
 
         ListView lv = (ListView) findViewById(R.id.listview);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, TYPES
-        );
-        lv.setAdapter(adapter1);
+        CustomListView customListView = new CustomListView(this,TYPES,ima);
+        lv.setAdapter(customListView);
         lv.setOnItemClickListener(this);
     }
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Type = (String) adapterView.getItemAtPosition(i);
-
         Intent intent=new Intent(this,Info.class);
        startActivity(intent);
     }
