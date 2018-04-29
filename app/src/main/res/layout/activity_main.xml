@@ -33,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="2"
+        android:background="#FFF">
 
     <Button
         android:id="@+id/album"
@@ -62,7 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:background="#FFF">
                 <Button
                     android:id="@+id/about_us"
                     android:layout_width="160dp"
