@@ -19,13 +19,11 @@ int total =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         //toolbar=(Toolbar) findViewById(R.id.toolbar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-       toolbar.setSubtitle("jjjj");
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);
@@ -80,8 +78,8 @@ int total =0;
                 if (total< h) {
                     total= h;
                 }
-                TextView highscore = findViewById(R.id.toolbar);
-                highscore.setText("The highest score in the  game is " + total);
+
+                toolbar.setTitle("The highest score in the  game is " + total);
             }
         }
     }
