@@ -253,8 +253,10 @@ public class Game extends Activity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
+
         String str_high = Integer.toString(high_score);
         str_high = str_high.trim();
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.Activity_KEY, str_high);
         setResult(RESULT_OK, intent);
