@@ -13,7 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:background="#182c7d"
-        android:theme="@style/Theme.AppCompat.Light">
+        android:theme="@style/Theme.AppCompat">
 
     </Toolbar>
 
@@ -45,7 +45,7 @@
         android:layout_marginTop="8dp"
         android:text="Album"
         android:layout_weight="1"
-        android:background="#ffe359"/>
+        android:background="#c5ff99"/>
         <Button
             android:id="@+id/game"
             android:layout_width="160dp"
@@ -56,7 +56,7 @@
             android:layout_marginTop="8dp"
             android:text="Game"
             android:layout_weight="1"
-            android:background="#ff94e2"/>
+            android:background="#38f2ff"/>
 
     </LinearLayout>
             <LinearLayout
@@ -74,7 +74,7 @@
                     android:layout_marginTop="8dp"
                     android:text="About_us"
                     android:layout_weight="1"
-                    android:background="#c5ff99"/>
+                    android:background="#ffe359" />
                 <Button
                     android:id="@+id/resources"
                     android:layout_width="160dp"
@@ -85,7 +85,7 @@
                     android:layout_marginTop="8dp"
                     android:text="Resources"
                     android:layout_weight="1"
-                    android:background="#38f2ff"/>
+                    android:background="#ff94e2"/>
 
 
         </LinearLayout>
