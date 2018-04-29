@@ -24,7 +24,7 @@ public static int total =0;
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.coin);
-        toolbar.setTitle("$ "+total);
+        toolbar.setTitle("Coins= "+total);
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);
@@ -77,7 +77,7 @@ public static int total =0;
                 total+=h;
 
 
-                toolbar.setTitle("$ "+total);
+                toolbar.setTitle("Coins= "+total);
             }
         }
     }

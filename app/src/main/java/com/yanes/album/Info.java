@@ -2,6 +2,7 @@ package com.yanes.album;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.res.*;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ThemedSpinnerAdapter;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -20,6 +22,8 @@ import java.util.List;
 
 public class Info extends ListActivity {
     private DBDataSource dbDataSource;
+    private AlertDialog dialog;
+    private String card_key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +49,44 @@ public class Info extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
+        dialog = new AlertDialog.Builder(this).create();
 
+        dialog.setTitle("<html>" + "<p>Do you want to buy this card?</p>"+"</html>");
+        dialog.setButton("Yes", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                     if(MainActivity.total>=5){
+                         MainActivity.total-=5;
+                         card_key="Done";
+                     }else{
+                         Toast.makeText(getApplicationContext(),"You do not have enough coins",Toast.LENGTH_LONG).show();
+                         card_key="Cancel";
+                     }
 
-        ArrayAdapter adapter = (ArrayAdapter<Album>)getListAdapter();
-        Album fin = (Album) adapter.getItem(position);
+                    }
+                });
+                dialog.setButton("No",new DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                card_key="Cancel";
+
+                            }
+                        });
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-
-
-        builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName()+"</p>" + "<p><b>State: </b>" + fin.getState()+"</p>" +
-                "<p><b>Type: </b>" + fin.getType()+"</p>" + "<p><b>Description: </b>" + fin.getDescription() +"</p>" +"</html>"));
-        builder. setTitle("Info");
-        builder.create().show();
+                if(card_key.equals("Done")) {
+                    ArrayAdapter adapter = (ArrayAdapter<Album>) getListAdapter();
+                    Album fin = (Album) adapter.getItem(position);
+                    builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName()+"</p>" + "<p><b>State: </b>" + fin.getState()+"</p>" +
+                      "<p><b>Type: </b>" + fin.getType()+"</p>" + "<p><b>Description: </b>" + fin.getDescription() +"</p>" +"</html>"));
+                     builder. setTitle("Info");
+                    builder.create().show();
+                }else{
+                    builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: ????</b>" +"</p>" + "<p><b>State: ????</b>" + "</p>" +
+                            "<p><b>Type: ????</b>"+"</p>" + "<p><b>Description: ????</b>" +"</p>" +"</html>"));
+                    builder. setTitle("Info");
+                    builder.create().show();
+                }
     }
     @Override
     protected void onStop() {
