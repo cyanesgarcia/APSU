@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yanes.album.MainActivity">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.yanes.album.MainActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -16,14 +16,13 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
-                android:scr="@drawable/landscape"/>
-
+                android:background="@drawable/landscape"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="160dp"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="2">
 
 
     <Button
@@ -32,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="8dp"
         android:text="Album"
         android:layout_weight="1"
          />
@@ -43,12 +42,17 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="8dp"
         android:text="About_us"
         android:layout_weight="1"
 
         />
-
+    </LinearLayout>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
     <Button
         android:id="@+id/resources"
         android:layout_width="wrap_content"
@@ -61,7 +65,20 @@
         android:layout_weight="1"
 
         />
+                <Button
+                    android:id="@+id/game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Game"
+                    android:layout_weight="1"
+
+                    />
+
     </LinearLayout>
-    </LinearLayout>
-   </ScrollView>
+        </LinearLayout>
 </LinearLayout>
+</ScrollView>
