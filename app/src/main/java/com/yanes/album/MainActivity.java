@@ -2,6 +2,7 @@ package com.yanes.album;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +23,9 @@ int total =0;
         setContentView(R.layout.activity_main);
 
         //toolbar=(Toolbar) findViewById(R.id.toolbar);
-        //setActionBar(toolbar);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+       toolbar.setSubtitle("jjjj");
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);
