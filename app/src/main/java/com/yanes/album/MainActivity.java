@@ -32,6 +32,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
 
         }else if(view.getId() == R.id.resources){
+            Intent intent=new Intent(this,Resources.class);
+            startActivity(intent);
+
 
         }
 
