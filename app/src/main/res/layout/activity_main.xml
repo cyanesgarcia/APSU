@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.yanes.album.MainActivity">
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yanes.album.MainActivity">
 
-
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,14 +81,15 @@
 
         </LinearLayout>
         </LinearLayout>
+    </ScrollView>
+
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
-        android:theme="@style/Theme.AppCompat.Light"
-        />
-
+        android:theme="@style/Theme.AppCompat.Light">
+    </Toolbar>
 
 </LinearLayout>
-</ScrollView>
+
