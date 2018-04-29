@@ -177,7 +177,7 @@ public class Game extends Activity implements View.OnClickListener {
             }
             my_sequence.clear();
 
-            tv.setText("Earn money: $"+ high_score);
+            tv.setText("Earn coins: "+ high_score);
             Toast.makeText(this, "Level "+ score, Toast.LENGTH_SHORT).show();
 
                 count1++;

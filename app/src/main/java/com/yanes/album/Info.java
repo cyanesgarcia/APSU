@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.ThemedSpinnerAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
 public class Info extends ListActivity {
     private DBDataSource dbDataSource;
     private AlertDialog dialog;
-    private String card_key;
+    private String card_key="  ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,47 +47,67 @@ public class Info extends ListActivity {
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
+    protected void onListItemClick(ListView l, View v, final int position, long id) {
         super.onListItemClick(l, v, position, id);
 
         dialog = new AlertDialog.Builder(this).create();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        ArrayAdapter adapter = (ArrayAdapter<Album>) getListAdapter();
+        final Album fin = (Album) adapter.getItem(position);
+        final ArrayList<String> check = null;
 
-        dialog.setTitle("<html>" + "<p>Do you want to buy this card?</p>"+"</html>");
+        dialog.setTitle("Do you want to buy this card?");
         dialog.setButton("Yes", new DialogInterface.OnClickListener(){
+
+
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                     if(MainActivity.total>=5){
-                         MainActivity.total-=5;
-                         card_key="Done";
+for(int ii=0; ii<check.size();ii++){
+    if(fin.getName() == check.get(ii)){
+        card_key="Have it";
+        break;
+    }else{
+        card_key="  ";
+    }
+}
+
+                     if(MainActivity.total>=5 || card_key.equals("Have it")){
+    if(!card_key.equals("Have it")) {
+
+
+        check.add(fin.getName());
+        MainActivity.total -= 5;
+    }else{
+        card_key="  ";
+    }
+
+                             builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName()+"</p>" + "<p><b>State: </b>" + fin.getState()+"</p>" +
+                                     "<p><b>Type: </b>" + fin.getType()+"</p>" + "<p><b>Description: </b>" + fin.getDescription() +"</p>" +"</html>"));
+                             builder. setTitle("Info");
+                             builder.create().show();
+
                      }else{
                          Toast.makeText(getApplicationContext(),"You do not have enough coins",Toast.LENGTH_LONG).show();
-                         card_key="Cancel";
+                             builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: ????</b>" +"</p>" + "<p><b>State: ????</b>" + "</p>" +
+                                     "<p><b>Type: ????</b>"+"</p>" + "<p><b>Description: ????</b>" +"</p>" +"</html>"));
+                             builder. setTitle("Info");
+                             builder.create().show();
+                         }
                      }
 
-                    }
+
                 });
-                dialog.setButton("No",new DialogInterface.OnClickListener(){
+                dialog.setButton2("No",new DialogInterface.OnClickListener(){
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 card_key="Cancel";
 
                             }
                         });
+                dialog.show();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                if(card_key.equals("Done")) {
-                    ArrayAdapter adapter = (ArrayAdapter<Album>) getListAdapter();
-                    Album fin = (Album) adapter.getItem(position);
-                    builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName()+"</p>" + "<p><b>State: </b>" + fin.getState()+"</p>" +
-                      "<p><b>Type: </b>" + fin.getType()+"</p>" + "<p><b>Description: </b>" + fin.getDescription() +"</p>" +"</html>"));
-                     builder. setTitle("Info");
-                    builder.create().show();
-                }else{
-                    builder.setMessage(Html.fromHtml("<html>" + "<p><b>Name: ????</b>" +"</p>" + "<p><b>State: ????</b>" + "</p>" +
-                            "<p><b>Type: ????</b>"+"</p>" + "<p><b>Description: ????</b>" +"</p>" +"</html>"));
-                    builder. setTitle("Info");
-                    builder.create().show();
-                }
+
+
     }
     @Override
     protected void onStop() {
