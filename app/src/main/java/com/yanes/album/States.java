@@ -19,16 +19,15 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
             "California(CA)","Florida(FL)","Georgia(GA)","Hawaii(HI)",
             "New York(NY)", "Tennessee(TN)", "Texas(TX)",
     };
+    Integer [] ima ={R.drawable.ny, R.drawable.ca,R.drawable.ny, R.drawable.ca, R.drawable.ny, R.drawable.ca,R.drawable.ca};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.s_t);
 
         ListView lv= (ListView) findViewById(R.id.listview);
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, STATES
-        );
-        lv.setAdapter(adapter);
+       CustomListView customListView = new CustomListView(this,STATES,ima);
+        lv.setAdapter(customListView);
         lv.setOnItemClickListener(this);
     }
 
