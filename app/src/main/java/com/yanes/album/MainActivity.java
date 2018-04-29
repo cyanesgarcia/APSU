@@ -3,6 +3,7 @@ package com.yanes.album;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,15 +16,15 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private static final int REQUEST_CODE_ADD=100;
     public static String Activity_KEY ="activity";
 Toolbar toolbar;
-int total =0;
+public static int total =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //toolbar=(Toolbar) findViewById(R.id.toolbar);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setLogo(R.drawable.coin);
+        toolbar.setTitle("$ "+total);
         Button album = (Button)findViewById(R.id.album);
         album.setOnClickListener(this);
         Button about_us= (Button) findViewById(R.id.about_us);
@@ -73,13 +74,10 @@ int total =0;
                 String high_score = data.getStringExtra(Activity_KEY);
                 Log.i("high score", "high score" + high_score);
                 h = Integer.parseInt(high_score);
+                total+=h;
 
 
-                if (total< h) {
-                    total= h;
-                }
-
-                toolbar.setTitle("The highest score in the  game is " + total);
+                toolbar.setTitle("$ "+total);
             }
         }
     }
