@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:screenOrientation="landscape">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +17,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Aboutus" android:screenOrientation="landscape"/>
-        <activity android:name=".States" android:screenOrientation="landscape"/>
-        <activity android:name=".type" android:screenOrientation="landscape"/>
-        <activity android:name=".Resources" android:screenOrientation="landscape"/>
-        <activity android:name=".Info" android:screenOrientation="landscape"/>
-        <activity android:name=".Game" android:screenOrientation="landscape"/>
+        <activity android:name=".Aboutus" android:screenOrientation="portrait"/>
+        <activity android:name=".States" android:screenOrientation="portrait"/>
+        <activity android:name=".type" android:screenOrientation="portrait"/>
+        <activity android:name=".Resources" android:screenOrientation="portrait"/>
+        <activity android:name=".Info" android:screenOrientation="portrait"/>
+        <activity android:name=".Game" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
