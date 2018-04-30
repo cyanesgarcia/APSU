@@ -53,6 +53,7 @@
         android:textSize="20sp"/>
 
     <TextView
+        android:id="@+id/CA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="California --> https://matadornetwork.com" />
