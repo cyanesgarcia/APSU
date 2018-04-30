@@ -41,16 +41,19 @@ public class Info extends ListActivity {
         final ListView listView = getListView();
         listView.setBackgroundColor(Color.parseColor("#4597CD"));
 
+
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, final int position, long id) {
+    protected void onListItemClick(final ListView l, final View v, final int position, final long id) {
         super.onListItemClick(l, v, position, id);
 
         dialog = new AlertDialog.Builder(this).create();
 
         ArrayAdapter adapter = (ArrayAdapter<Album>) getListAdapter();
         fin=(Album)adapter.getItem(position);
+
+
 
 
         for(int ii=0; ii<MainActivity.check.size();ii++){
@@ -72,12 +75,11 @@ public class Info extends ListActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
 
-                     if(MainActivity.total>=5 ){
-
+                     //if(MainActivity.total>=5 ){
         MainActivity.check.add(fin.getName());
         MainActivity.total -= 5;
         card_key = 1;
-    }
+   // }
 
 f();
                  }});
