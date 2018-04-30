@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 /**
@@ -14,9 +15,14 @@ public class Resources extends Activity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resources);
-        TextView te= (TextView)findViewById(R.id.CA);
-        String hola= goToUrl("https://matadornetwork.com");
-        te.setText(hola);
+        TextView CA= (TextView)findViewById(R.id.CA);
+        CA.setText("https://matadornetwork.com");
+       CA.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               goToUrl("https://matadornetwork.com");
+           }
+       });
 
 }public String goToUrl(String st){
         Uri uri= Uri.parse(st);
