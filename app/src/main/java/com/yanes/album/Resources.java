@@ -47,14 +47,14 @@ public class Resources extends Activity {
         CNY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToUrl(" https://www.quora.com/Why-is-Albany-the-capital-of-New-York");
+                goToUrl("https://www.quora.com/Why-is-Albany-the-capital-of-New-York");
             }
         });
         TextView CTN= (TextView)findViewById(R.id.CTN);
         CTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToUrl(" https://www.quora.com/How-did-Nashville-become-Tennessees-state-capital");
+                goToUrl("https://www.quora.com/How-did-Nashville-become-Tennessees-state-capital");
             }
         });
         TextView CTX= (TextView)findViewById(R.id.CTX);
@@ -159,7 +159,7 @@ public class Resources extends Activity {
         PTX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToUrl("https://www.planetware.comroid/tourist-attractions/texas-ustx.htm");
+                goToUrl("https://www.planetware.com/tourist-attractions/texas-ustx.htm");
             }
         });
 

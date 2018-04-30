@@ -163,7 +163,7 @@
         android:id="@+id/PTX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Texas --> https://www.planetware.comroid/tourist-attractions/texas-ustx.htm"
+        android:text="Texas --> https://www.planetware.com/tourist-attractions/texas-ustx.htm"
         android:textColor="@color/colorPrimary"/>
 
 </LinearLayout></ScrollView>
