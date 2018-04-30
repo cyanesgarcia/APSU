@@ -75,11 +75,11 @@ public class Info extends ListActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
 
-                     //if(MainActivity.total>=5 ){
+                     if(MainActivity.total>=5 ){
         MainActivity.check.add(fin.getName());
         MainActivity.total -= 5;
         card_key = 1;
-   // }
+                     }
 
 f();
                  }});
