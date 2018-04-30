@@ -173,7 +173,6 @@ public class Game extends Activity implements View.OnClickListener {
             my_sequence.clear();
 
             tv.setText("Earn coins: "+ score);
-            Toast.makeText(this, "Level "+ score, Toast.LENGTH_SHORT).show();
 
                 count1++;
 
