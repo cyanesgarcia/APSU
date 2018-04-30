@@ -56,7 +56,8 @@
         android:id="@+id/CA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="California --> https://matadornetwork.com" />
+        android:text="California --> https://matadornetwork.com"
+        android:textColor="@color/colorPrimary"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -16,7 +16,6 @@ public class Resources extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resources);
         TextView CA= (TextView)findViewById(R.id.CA);
-        CA.setText("https://matadornetwork.com");
        CA.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
