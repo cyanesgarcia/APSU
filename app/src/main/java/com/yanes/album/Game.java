@@ -39,8 +39,6 @@ public class Game extends Activity implements View.OnClickListener {
     int count1=1;
     ImageButton im;
     boolean equal= true;
-
-    int high_score = 0;
     int score = 0;
 
     @Override
@@ -172,12 +170,9 @@ public class Game extends Activity implements View.OnClickListener {
 
         if(equal==true){
             score++;
-            if(high_score<score){
-                high_score+=score;
-            }
             my_sequence.clear();
 
-            tv.setText("Earn coins: "+ high_score);
+            tv.setText("Earn coins: "+ score);
             Toast.makeText(this, "Level "+ score, Toast.LENGTH_SHORT).show();
 
                 count1++;
@@ -190,7 +185,7 @@ public class Game extends Activity implements View.OnClickListener {
             Toast.makeText(this, "Lost", Toast.LENGTH_SHORT).show();
 
 
-                count1 = 1;
+            count1=1;
             start=0;
             equal=true;
             sequence.clear();
@@ -253,7 +248,7 @@ public class Game extends Activity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
 
-        String str_high = Integer.toString(high_score);
+        String str_high = Integer.toString(score);
         str_high = str_high.trim();
 
         Intent intent = new Intent(this, MainActivity.class);
