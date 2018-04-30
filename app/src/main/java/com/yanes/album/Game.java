@@ -172,8 +172,9 @@ public class Game extends Activity implements View.OnClickListener {
 
         if(equal==true){
             score++;
+            if(high_score<score){
                 high_score+=score;
-
+            }
             my_sequence.clear();
 
             tv.setText("Earn coins: "+ high_score);
@@ -191,7 +192,6 @@ public class Game extends Activity implements View.OnClickListener {
 
                 count1 = 1;
             start=0;
-            score=0;
             equal=true;
             sequence.clear();
             my_sequence.clear();
