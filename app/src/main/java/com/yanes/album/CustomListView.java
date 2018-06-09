@@ -1,7 +1,7 @@
 package com.yanes.album;
 
 import android.app.Activity;
-import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,17 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
 /**
  * Created by claud on 4/29/2018.
  */
 
 public class CustomListView extends ArrayAdapter<String>{
 
-    private String[] STATES;
-    private Integer[] ima;
+    private ArrayList<String> STATES;
+    private ArrayList<String> ima;
     private Activity context;
 
-    public CustomListView(Activity context, String[] STATES, Integer[] ima) {
+    public CustomListView(Activity context, ArrayList<String> STATES, ArrayList<String> ima) {
         super(context, R.layout.listview_s_t, STATES);
 
         this.context=context;
@@ -44,8 +48,19 @@ public class CustomListView extends ArrayAdapter<String>{
             viewHolder = (ViewHolder) r.getTag();
 
         }
-        viewHolder.imageView.setImageResource(ima[position]);
-        viewHolder.textView.setText(STATES[position]);
+        String src= ima.get(position);
+
+        Picasso.with(this.context)
+                .load(src)
+                .placeholder(null)
+                .resize(250,350)
+                .into(viewHolder.imageView);
+
+        //Picasso.with(this.context).load(src).into(viewHolder.imageView);
+
+       // new Bitmap_class(viewHolder.imageView).execute(src);
+       //viewHolder.imageView.setImageURI(Uri.parse((ima.get(position))));
+        viewHolder.textView.setText(STATES.get(position));
 
         return r;
 

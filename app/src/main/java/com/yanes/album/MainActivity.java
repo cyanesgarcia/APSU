@@ -18,6 +18,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private static final int REQUEST_CODE_ADD=100;
     public static String Activity_KEY ="activity";
     public static ArrayList<String> check = new ArrayList<>();
+    public static ArrayList<View> position = new ArrayList<>();
+    public static ArrayList<Integer> po = new ArrayList<>();
 Toolbar toolbar;
 public static int total =0;
 

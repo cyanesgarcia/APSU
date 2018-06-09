@@ -9,15 +9,17 @@ public class Album {
     private String Type;
     private String Name;
     private String Description;
+    private String Photo;
 
     Album() {
     }
 
-    public Album(String state, String type, String name, String description) {
+    public Album(String state, String type, String name, String description, String photo) {
         Name = name;
         State = state;
         Type = type;
         Description = description;
+        Photo = photo;
     }
     public String getState() {
         return State;
@@ -31,6 +33,9 @@ public class Album {
     public String getDescription() {
         return Description;
     }
+    public String getPhoto() {
+        return Photo;
+    }
     public void setState(String state) {
         State = state;
     }
@@ -43,6 +48,10 @@ public class Album {
 
     public void setDescription(String description) {
         Description = description;
+    }
+
+    public void setPhoto(String photo) {
+        Photo = photo;
     }
 
 
