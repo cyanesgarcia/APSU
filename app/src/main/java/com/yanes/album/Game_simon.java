@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class Simon extends Activity implements View.OnClickListener {
+public class Game_simon extends Activity implements View.OnClickListener {
     Random rnd = new Random();
     private SoundPool soundPool;
     private Set<Integer> soundLoaded;
@@ -40,14 +40,14 @@ public class Simon extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+        setContentView(R.layout.game_simon);
         soundLoaded = new HashSet<Integer>();
 
         Button button = (Button) findViewById(R.id.bfstart);
         button.setOnClickListener(this);
 
     }
-    private Game.UpdateTask updateTask;
+    private UpdateTask updateTask;
 
     @Override
     protected void onPause() {
@@ -110,7 +110,7 @@ public class Simon extends Activity implements View.OnClickListener {
                 updateTask = null;
             }
             if (updateTask == null ) {
-                updateTask = new Game.UpdateTask();
+                updateTask = new UpdateTask();
                 updateTask.execute();
 
             } else {
@@ -174,7 +174,7 @@ public class Simon extends Activity implements View.OnClickListener {
 
 
 
-            updateTask = new Game.UpdateTask();
+            updateTask = new UpdateTask();
             updateTask.execute();
         }else {
             Toast.makeText(this, "Lost", Toast.LENGTH_SHORT).show();
