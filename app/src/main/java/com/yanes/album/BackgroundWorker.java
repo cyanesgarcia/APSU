@@ -1,7 +1,9 @@
 package com.yanes.album;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -24,9 +26,22 @@ import java.net.URLEncoder;
 public class BackgroundWorker extends AsyncTask<String, Void, String> {
     Context context;
     AlertDialog alertDialog;
+    String check1;
+    public String getCheck1() {
+        return check1;
+    }
+
+    public void setCheck1(String check1) {
+        this.check1 = check1;
+    }
+
+
+
+
     BackgroundWorker(Context ctx){
         context = ctx;
     }
+
     @Override
     protected String doInBackground(String... voids) {
         String type = voids[0];
@@ -57,8 +72,6 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 while((line = bufferedReader.readLine())!= null){
                     result += line;
                 }
-                Log.i("111","SIEMPRE");
-                Log.i("111",result);
                 if(result.equals("login not success")){
                     Log.i("1111", "YES");
                 }
@@ -124,17 +137,37 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
     protected void onPreExecute() {
         alertDialog = new AlertDialog.Builder(context).create();
         alertDialog.setTitle("Login Status");
+        Log.i("probar", "1");
     }
+public void post(Activity a){
+        Log.i("hola", "hola");
+    if (login_page.check.equals("Yes")) {
+        a.startActivity(new Intent(a, MainActivity.class));
+    }
+}
 
     @Override
     protected void onPostExecute(String result) {
-       alertDialog.setMessage(result);
+       if(!result.equals(" login not success")){
+           login_page.check="Yes";
+           setCheck1("Yes");
+           Log.i("String1", "s "+ getCheck1());
+       }else{
+           login_page.check="No";
+           setCheck1("No");
+       }
+        alertDialog.setMessage(result);
+
         alertDialog.show();
+
+        post(login_page.a);
     }
 
     @Override
     protected void onProgressUpdate(Void... values) {
+
         super.onProgressUpdate(values);
+
     }
 
 

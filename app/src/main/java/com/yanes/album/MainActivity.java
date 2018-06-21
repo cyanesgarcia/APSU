@@ -93,4 +93,9 @@ public static int total =0;
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }
