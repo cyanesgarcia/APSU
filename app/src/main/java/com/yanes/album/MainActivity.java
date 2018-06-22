@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
     private static final int REQUEST_CODE_ADD=100;
+    public String classes= "MainActivity";
     public static String Activity_KEY ="activity";
     public static ArrayList<String> check = new ArrayList<>();
     public static ArrayList<View> position = new ArrayList<>();
@@ -92,23 +93,25 @@ public static int total =0;
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if (item.getItemId() == R.id.inicioItem) {
-                    Intent intent=new Intent(MainActivity.this, Game_simon.class);
-                    startActivity(intent);
+                    classes= "Resources.class";
                 } else if (item.getItemId() == R.id.buscarItem) {
-                    Intent intent=new Intent(MainActivity.this, Resources.class);
-                    startActivity(intent);
+                    classes="Game_simon.class";
                 } else if (item.getItemId() == R.id.favoritosItem) {
-                    Intent intent=new Intent(MainActivity.this, Aboutus.class);
-                    startActivity(intent);
+                    classes="Aboutus.class";
                 } else if (item.getItemId() == R.id.perfilItem) {
-                    Intent intent=new Intent(MainActivity.this, Album.class);
-                    startActivity(intent);
+                    classes="Album.class";
                 }
 
                 return true;
             }
         });
-
+        Intent intent= null;
+        try {
+            intent = new Intent(this, Class.forName(classes));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        startActivity(intent);
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
