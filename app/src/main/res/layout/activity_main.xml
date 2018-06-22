@@ -95,8 +95,8 @@
         </LinearLayout>
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
 
+</LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
