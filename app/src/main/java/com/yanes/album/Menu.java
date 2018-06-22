@@ -19,7 +19,6 @@ import android.widget.TextView;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
-            infoTextView = (TextView) findViewById(R.id.infoTextView);
 
             bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 

@@ -1,8 +1,3 @@
 <resources>
     <string name="app_name">Album</string>
-    <string name="inicio">Home</string>
-    <string name="buscar">Search</string>
-    <string name="camara">Camera</string>
-    <string name="favoritos">Favorites</string>
-    <string name="perfil">Profile</string>
 </resources>
