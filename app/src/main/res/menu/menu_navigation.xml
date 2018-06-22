@@ -3,22 +3,30 @@
 
     <item
         android:id="@+id/inicioItem"
+        android:title="Home"
         android:icon="@drawable/bblue"
-        android:title="@string/inicio" />
+        android:textcolor="#FFF"
+        android:visible="true" />
 
     <item
         android:id="@+id/buscarItem"
         android:icon="@drawable/bred"
-        android:title="@string/buscar" />
+        android:title="Search"
+        android:textcolor="#FFF"
+        android:visible="true" />
 
     <item
         android:id="@+id/favoritosItem"
         android:icon="@drawable/bgreen"
-        android:title="@string/favoritos" />
+        android:title="Favorites"
+        android:textcolor="#FFF"
+        android:visible="true" />
 
     <item
         android:id="@+id/perfilItem"
         android:icon="@drawable/byellow"
-        android:title="@string/perfil" />
+        android:title="Profile"
+        android:textcolor="#FFF"
+        android:visible="true" />
 
 </menu>

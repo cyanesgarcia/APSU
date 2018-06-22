@@ -9,6 +9,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -83,6 +85,29 @@ public static int total =0;
 
 
     }
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if (item.getItemId() == R.id.inicioItem) {
+                    Intent intent=new Intent(MainActivity.this, Game_simon.class);
+                    startActivity(intent);
+                } else if (item.getItemId() == R.id.buscarItem) {
+                    Intent intent=new Intent(MainActivity.this, Resources.class);
+                    startActivity(intent);
+                } else if (item.getItemId() == R.id.favoritosItem) {
+                    Intent intent=new Intent(MainActivity.this, Aboutus.class);
+                    startActivity(intent);
+                } else if (item.getItemId() == R.id.perfilItem) {
+                    Intent intent=new Intent(MainActivity.this, Album.class);
+                    startActivity(intent);
+                }
+
+                return true;
+            }
+        });
 
     }
     @SuppressWarnings("StatementWithEmptyBody")
@@ -124,7 +149,7 @@ public static int total =0;
                 total+=h;
 
 
-              //  toolbar.setTitle(total+ " coins");
+                toolbar.setTitle(total+ " coins");
             }
         }
     }
