@@ -5,28 +5,28 @@
         android:id="@+id/inicioItem"
         android:title="Home"
         android:icon="@drawable/bblue"
-        android:textcolor="#FFF"
+        android:color="#FFF"
         android:visible="true" />
 
     <item
         android:id="@+id/buscarItem"
         android:icon="@drawable/bred"
         android:title="Search"
-        android:textcolor="#FFF"
+        android:color="#FFF"
         android:visible="true" />
 
     <item
         android:id="@+id/favoritosItem"
         android:icon="@drawable/bgreen"
         android:title="Favorites"
-        android:textcolor="#FFF"
+        android:color="#FFF"
         android:visible="true" />
 
     <item
         android:id="@+id/perfilItem"
         android:icon="@drawable/byellow"
         android:title="Profile"
-        android:textcolor="#FFF"
+        android:color="#FFF"
         android:visible="true" />
 
 </menu>
