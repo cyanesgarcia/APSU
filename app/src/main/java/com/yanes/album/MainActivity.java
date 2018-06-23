@@ -2,8 +2,6 @@ package com.yanes.album;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,9 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -42,6 +38,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         setContentView(R.layout.activity_main1);
         NavigationView n = findViewById(R.id.nav_view);
         n.setItemIconTintList(null);
+        n.setNavigationItemSelectedListener(this);
+
         toolbar = findViewById(R.id.toolbar);
 
 
@@ -67,12 +65,12 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Log.i("lleganav", "hh"+c);
-                if (item.getItemId() == R.id.inicioItem) {
+                if (item.getItemId() == R.id.HomeItem) {
                     c= "MainActivity";
-                } else if (item.getItemId() == R.id.buscarItem) {
+                } else if (item.getItemId() == R.id.GameItem) {
                     c="Game_simon";
-              }  else if (item.getItemId() == R.id.favoritosItem) {
-                    c="Aboutus";
+              }  else if (item.getItemId() == R.id.AlbumItem) {
+                    c="States";
                 }
 
                 start_activity_menu();
@@ -81,8 +79,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             }
 
         });
-        NavigationView navigationView=(NavigationView)findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
     }
     public void start_activity_menu(){
@@ -92,8 +88,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             }else if(c.equals("Game_simon")){
                 intent=new Intent(this,Game_simon.class);
                 startActivity(intent);
-            }else if (c.equals("Aboutus")){
-               intent=new Intent(this,Aboutus.class);
+            }else if (c.equals("States")){
+               intent=new Intent(this,States.class);
                 startActivity(intent);
             }
 
@@ -131,6 +127,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
 
         if (id == R.id.nav_album) {
+            Intent intent=new Intent(this, States.class);
+            startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_classifications) {
 

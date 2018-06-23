@@ -20,7 +20,6 @@
         </activity>
         <activity android:name=".login_page" android:screenOrientation="portrait"/>
         <activity android:name=".register_page" android:screenOrientation="portrait"/>
-        <activity android:name=".Menu" android:screenOrientation="portrait"/>
         <activity android:name=".Aboutus" android:screenOrientation="portrait"/>
         <activity android:name=".States" android:screenOrientation="portrait"/>
         <activity android:name=".type" android:screenOrientation="portrait"/>

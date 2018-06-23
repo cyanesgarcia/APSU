@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/inicioItem"
+        android:id="@+id/HomeItem"
         android:color="#FFF"
         android:icon="@android:drawable/ic_dialog_info"
         android:title="Home"
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/buscarItem"
+        android:id="@+id/AlbumItem"
         android:color="#FFF"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="Search"
+        android:title="Album"
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/favoritosItem"
+        android:id="@+id/GameItem"
         android:color="#FFF"
         android:icon="@android:drawable/btn_star"
-        android:title="Favorites"
+        android:title="Game"
         app:showAsAction="ifRoom|withText" />
 
 
