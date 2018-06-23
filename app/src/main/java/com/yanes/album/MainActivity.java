@@ -81,6 +81,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             }
 
         });
+        NavigationView navigationView=(NavigationView)findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
     }
     public void start_activity_menu(){
@@ -121,23 +123,23 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     }
 
     }
-    @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
 
         if (id == R.id.nav_album) {
             // Handle the camera action
         } else if (id == R.id.nav_classifications) {
 
         } else if (id == R.id.nav_resources) {
-            Log.i("mio","m");
-            Intent intent=new Intent(this,Resources.class);
+            Intent intent=new Intent(this, Resources.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_aboutus) {
-            Intent intent=new Intent(this,Aboutus.class);
+            Intent intent=new Intent(this, Aboutus.class);
             startActivity(intent);
 
         }
