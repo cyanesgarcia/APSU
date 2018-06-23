@@ -62,6 +62,27 @@ public static int total =0;
         resource.setOnClickListener(this);
         Button game= (Button) findViewById(R.id.game);
         game.setOnClickListener(this);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if (item.getItemId() == R.id.inicioItem) {
+                    classes= "Resources";
+                } else if (item.getItemId() == R.id.buscarItem) {
+                    classes="Game_simon";
+                } else if (item.getItemId() == R.id.favoritosItem) {
+                    classes="Aboutus";
+                } else if (item.getItemId() == R.id.perfilItem) {
+                    classes="Album";
+                }
+
+                return true;
+            }
+        });
+        Intent intent=new Intent(this, Class.forName(classes));
+        startActivity(intent);
     }
 
     @Override
@@ -86,32 +107,7 @@ public static int total =0;
 
 
     }
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                if (item.getItemId() == R.id.inicioItem) {
-                    classes= "Resources.class";
-                } else if (item.getItemId() == R.id.buscarItem) {
-                    classes="Game_simon.class";
-                } else if (item.getItemId() == R.id.favoritosItem) {
-                    classes="Aboutus.class";
-                } else if (item.getItemId() == R.id.perfilItem) {
-                    classes="Album.class";
-                }
-
-                return true;
-            }
-        });
-        Intent intent= null;
-        try {
-            intent = new Intent(this, Class.forName(classes));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        startActivity(intent);
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

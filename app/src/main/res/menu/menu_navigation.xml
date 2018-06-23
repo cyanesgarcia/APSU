@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/inicioItem"
         android:title="Home"
         android:icon="@drawable/bblue"
         android:color="#FFF"
-        android:visible="true" />
+        />
 
+
+    <item
+        android:id="@+id/inicioIem"
+        android:title="Home"
+        android:icon="@drawable/bblue"
+        android:color="#FFF"
+        />
     <item
         android:id="@+id/buscarItem"
         android:icon="@drawable/bred"
         android:title="Search"
         android:color="#FFF"
-        android:visible="true" />
+       />
 
     <item
         android:id="@+id/favoritosItem"
         android:icon="@drawable/bgreen"
+        android:visible="true"
         android:title="Favorites"
         android:color="#FFF"
-        android:visible="true" />
+       />
 
-    <item
-        android:id="@+id/perfilItem"
-        android:icon="@drawable/byellow"
-        android:title="Profile"
-        android:color="#FFF"
-        android:visible="true" />
 
 </menu>
