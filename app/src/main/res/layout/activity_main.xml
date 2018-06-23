@@ -6,150 +6,145 @@
     android:layout_height="match_parent">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/l"
+    <LinearLayout
+    android:id="@+id/l"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yanes.album.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/coin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.774"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="coin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.929"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/landscape"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_anchor="@+id/l"
-        app:layout_anchorGravity="bottom|center"
-        tools:context="com.yanes.album.MainActivity">
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:background="#FFF">
 
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+    <Button
+        android:id="@+id/album"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Album"
+        android:layout_weight="1"
+        android:background="#c5ff99"/>
+        <Button
+            android:id="@+id/game"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Game"
+            android:layout_weight="1"
+            android:background="#38f2ff"/>
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay">
-
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/coin"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.774"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="coin"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.929"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </android.support.constraint.ConstraintLayout>
-            </android.support.v7.widget.Toolbar>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:background="#FFF"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="118dp"
-                    android:background="@drawable/landscape" />
+                <Button
+                    android:id="@+id/about_us"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:background="#ffe359"
+                    android:text="About_us" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFF"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <Button
-                        android:id="@+id/album"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="#c5ff99"
-                        android:text="Album" />
-
-                    <Button
-                        android:id="@+id/game"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="#38f2ff"
-                        android:text="Game" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFF"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <Button
-                        android:id="@+id/about_us"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="#ffe359"
-                        android:text="About_us" />
-
-                    <Button
-                        android:id="@+id/resources"
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_weight="1"
-                        android:background="#ff94e2"
-                        android:text="Resources" />
+                <Button
+                    android:id="@+id/resources"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:background="#ff94e2"
+                    android:text="Resources" />
 
 
-                </LinearLayout>
             </LinearLayout>
-        </ScrollView>
+        </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
+</LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        design:layout_anchor="@+id/l"
+        design:layout_anchor="@+id/linearLayout"
         design:layout_anchorGravity="bottom|center">
 
         <FrameLayout
