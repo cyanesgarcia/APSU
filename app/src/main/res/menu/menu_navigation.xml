@@ -5,31 +5,21 @@
     <item
         android:id="@+id/inicioItem"
         android:title="Home"
-        android:icon="@drawable/bblue"
         android:color="#FFF"
-        />
+        app:showAsAction="ifRoom|withText"/>
 
-
-    <item
-        android:id="@+id/inicioIem"
-        android:title="Home"
-        android:icon="@drawable/bblue"
-        android:color="#FFF"
-        />
     <item
         android:id="@+id/buscarItem"
-        android:icon="@drawable/bred"
         android:title="Search"
         android:color="#FFF"
-       />
+        app:showAsAction="ifRoom|withText"/>
 
     <item
         android:id="@+id/favoritosItem"
-        android:icon="@drawable/bgreen"
-        android:visible="true"
         android:title="Favorites"
         android:color="#FFF"
-       />
+        app:showAsAction="ifRoom|withText"/>
+
 
 
 </menu>
