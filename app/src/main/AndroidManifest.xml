@@ -26,6 +26,7 @@
         <activity android:name=".Resources" android:screenOrientation="portrait"/>
         <activity android:name=".Info" android:screenOrientation="portrait"/>
         <activity android:name=".Game_simon" android:screenOrientation="portrait"/>
+        <activity android:name=".Game" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

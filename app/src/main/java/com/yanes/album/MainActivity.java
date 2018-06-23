@@ -68,7 +68,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                 if (item.getItemId() == R.id.HomeItem) {
                     c= "MainActivity";
                 } else if (item.getItemId() == R.id.GameItem) {
-                    c="Game_simon";
+                    c="Game";
               }  else if (item.getItemId() == R.id.AlbumItem) {
                     c="States";
                 }
@@ -85,8 +85,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         Intent intent = null;
             if(c.equals("MainActivity")){
 
-            }else if(c.equals("Game_simon")){
-                intent=new Intent(this,Game_simon.class);
+            }else if(c.equals("Game")){
+                intent=new Intent(this,Game.class);
                 startActivity(intent);
             }else if (c.equals("States")){
                intent=new Intent(this,States.class);

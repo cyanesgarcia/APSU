@@ -196,7 +196,7 @@ public class Resources extends Activity implements  NavigationView.OnNavigationI
                 if (item.getItemId() == R.id.HomeItem) {
                     c= "MainActivity";
                 } else if (item.getItemId() == R.id.GameItem) {
-                    c="Game_simon";
+                    c="Game";
                 }  else if (item.getItemId() == R.id.AlbumItem) {
                     c="States";
                 }
@@ -213,8 +213,8 @@ public class Resources extends Activity implements  NavigationView.OnNavigationI
         if(c.equals("MainActivity")){
             intent=new Intent(this,MainActivity.class);
             startActivity(intent);
-        }else if(c.equals("Game_simon")){
-            intent=new Intent(this,Game_simon.class);
+        }else if(c.equals("Game")){
+            intent=new Intent(this,Game.class);
             startActivity(intent);
         }else if (c.equals("States")){
             intent=new Intent(this,States.class);
