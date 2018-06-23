@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
     <Toolbar
         android:id="@+id/toolbar"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:layout_width="match_parent"
         android:background="#182c7d"
         android:theme="@style/Theme.AppCompat">
