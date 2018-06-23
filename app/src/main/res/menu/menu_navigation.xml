@@ -4,22 +4,24 @@
 
     <item
         android:id="@+id/inicioItem"
-        android:title="Home"
         android:color="#FFF"
-        app:showAsAction="ifRoom|withText"/>
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home"
+        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/buscarItem"
-        android:title="Search"
         android:color="#FFF"
-        app:showAsAction="ifRoom|withText"/>
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        app:showAsAction="ifRoom|withText" />
 
     <item
         android:id="@+id/favoritosItem"
-        android:title="Favorites"
         android:color="#FFF"
-        app:showAsAction="ifRoom|withText"/>
-
+        android:icon="@android:drawable/btn_star"
+        android:title="Favorites"
+        app:showAsAction="ifRoom|withText" />
 
 
 </menu>

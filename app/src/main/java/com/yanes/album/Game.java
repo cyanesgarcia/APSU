@@ -23,4 +23,7 @@ import java.util.Set;
  * Created by claud on 4/29/2018.
  */
 
-public class Game {}
+public class Game extends Activity {
+
+
+}
