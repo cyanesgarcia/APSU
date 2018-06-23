@@ -64,23 +64,25 @@ public static int total =0;
         Button game= (Button) findViewById(R.id.game);
         game.setOnClickListener(this);
         Log.i("estetetetettete", " "+classes);
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                Log.i("estetetetettete", " "+classes);
 
                 if (item.getItemId() == R.id.inicioItem) {
                     classes= "Resources";
                 } else if (item.getItemId() == R.id.buscarItem) {
                     classes="Game_simon";
-                } else if (item.getItemId() == R.id.favoritosItem) {
+              }  else if (item.getItemId() == R.id.favoritosItem) {
                     classes="Aboutus";
-                } else if (item.getItemId() == R.id.perfilItem) {
+                } /*else if (item.getItemId() == R.id.perfilItem) {
                     classes="Album";
-                }
+                }*/
+
+                Log.i("estetetetettete", " "+classes);
+
                 try {
                     jj(classes);
                 } catch (ClassNotFoundException e) {
@@ -90,7 +92,7 @@ public static int total =0;
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-
+classes=null;
                 return true;
             }
         });

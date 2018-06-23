@@ -30,11 +30,11 @@ import android.widget.TextView;
                         infoTextView.setText(R.string.inicio);
                     } else if (item.getItemId() == R.id.buscarItem) {
                         infoTextView.setText(R.string.buscar);
-                    } else if (item.getItemId() == R.id.favoritosItem) {
+                    } /*else if (item.getItemId() == R.id.favoritosItem) {
                         infoTextView.setText(R.string.favoritos);
                     } else if (item.getItemId() == R.id.perfilItem) {
                         infoTextView.setText(R.string.perfil);
-                    }
+                    }*/
 
                     return true;
                 }
