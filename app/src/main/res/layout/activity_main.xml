@@ -102,14 +102,13 @@
             android:background="#38f2ff"/>
 
     </LinearLayout>
-
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#FFF"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:background="#FFF"
+                android:layout_marginBottom="58dp">
                 <Button
                     android:id="@+id/about_us"
                     android:layout_width="160dp"
@@ -117,10 +116,9 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:text="About_us"
                     android:layout_weight="1"
-                    android:background="#ffe359"
-                    android:text="About_us" />
-
+                    android:background="#ffe359" />
                 <Button
                     android:id="@+id/resources"
                     android:layout_width="160dp"
@@ -129,37 +127,33 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:text="Resources"
                     android:layout_weight="1"
-                    android:background="#ff94e2"
-                    android:text="Resources" />
+                    android:background="#ff94e2"/>
 
 
-            </LinearLayout>
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        design:layout_anchor="@+id/linearLayout"
-        design:layout_anchorGravity="bottom|center">
-
-        <FrameLayout
+        android:layout_height="match_parent">
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/l"
             android:layout_gravity="bottom"
-            android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_alignBottom="@id/l"
+           android:theme="@style/AppTheme.AppBarOverlay">
 
 
             <android.support.design.widget.BottomNavigationView
+                android:background="#182c7d"
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#182c7d"
+                android:layout_height="58dp"
                 design:menu="@menu/menu_navigation" />
 
         </FrameLayout>

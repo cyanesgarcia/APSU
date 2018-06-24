@@ -23,18 +23,16 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
     private static final int REQUEST_CODE_ADD=100;
-    public static String classes= null;
-
+    public static String c = "";
     public static String Activity_KEY ="activity";
     public static ArrayList<String> check = new ArrayList<>();
     public static ArrayList<View> position = new ArrayList<>();
     public static ArrayList<Integer> po = new ArrayList<>();
-android.support.v7.widget.Toolbar toolbar;
-public static int total =0;
+    android.support.v7.widget.Toolbar toolbar;
+    public static int total =0;
 
     @Override
     protected void onResume() {
-       // toolbar.setTitle(total+" coins");
         super.onResume();
     }
 
@@ -42,74 +40,63 @@ public static int total =0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-        NavigationView n =(NavigationView)findViewById(R.id.nav_view);
+        NavigationView n = findViewById(R.id.nav_view);
         n.setItemIconTintList(null);
-        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-       // toolbar.setLogo(R.drawable.coin);
+        toolbar = findViewById(R.id.toolbar);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        Button album = (Button)findViewById(R.id.album);
+        Button album = findViewById(R.id.album);
         album.setOnClickListener(this);
-        Button about_us= (Button) findViewById(R.id.about_us);
+        Button about_us= findViewById(R.id.about_us);
         about_us.setOnClickListener(this);
-        Button resource= (Button) findViewById(R.id.resources);
+        Button resource= findViewById(R.id.resources);
         resource.setOnClickListener(this);
-        Button game= (Button) findViewById(R.id.game);
+        Button game= findViewById(R.id.game);
         game.setOnClickListener(this);
-        Log.i("estetetetettete", " "+classes);
 
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+                Log.i("lleganav", "hh"+c);
                 if (item.getItemId() == R.id.inicioItem) {
-                    classes= "Resources";
+                    c= "MainActivity";
                 } else if (item.getItemId() == R.id.buscarItem) {
-                    classes="Game_simon";
+                    c="Game_simon";
               }  else if (item.getItemId() == R.id.favoritosItem) {
-                    classes="Aboutus";
-                } /*else if (item.getItemId() == R.id.perfilItem) {
-                    classes="Album";
-                }*/
-
-                Log.i("estetetetettete", " "+classes);
-
-                try {
-                    jj(classes);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    c="Aboutus";
                 }
-classes=null;
+
+                start_activity_menu();
+
                 return true;
             }
+
         });
 
     }
-public void jj(String cl) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+    public void start_activity_menu(){
+        Intent intent = null;
+            if(c.equals("MainActivity")){
 
-        Class classTemp = Class.forName(cl);
-        Object obj = classTemp.newInstance();
+            }else if(c.equals("Game_simon")){
+                intent=new Intent(this,Game_simon.class);
+                startActivity(intent);
+            }else if (c.equals("Aboutus")){
+               intent=new Intent(this,Aboutus.class);
+                startActivity(intent);
+            }
 
-Log.i("classTemp", "c"+ classTemp);
-Log.i("obj", "o"+ obj);
-    //Intent intent = new Intent(this, classTemp.class);
+        }
 
-
-  //  startActivity(intent);
-}
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.album){
@@ -145,12 +132,17 @@ Log.i("obj", "o"+ obj);
         } else if (id == R.id.nav_classifications) {
 
         } else if (id == R.id.nav_resources) {
+            Log.i("mio","m");
+            Intent intent=new Intent(this,Resources.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_aboutus) {
+            Intent intent=new Intent(this,Aboutus.class);
+            startActivity(intent);
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
@@ -173,14 +165,13 @@ Log.i("obj", "o"+ obj);
                 total+=h;
 
 
-                toolbar.setTitle(total+ " coins");
-            }
+                }
         }
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
