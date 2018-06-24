@@ -70,7 +70,7 @@
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingtop="16dp">
+        android:paddingTop="16dp">
 
         <com.hitomi.cmlibrary.CircleMenu
             android:id="@+id/circle_menu"
