@@ -20,7 +20,7 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
             setContentView(R.layout.activity_game);
             circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
 
-            circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.mipmap.icon_menu, R.mipmap.icon_cancel);
+            circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.drawable.icon_menu, R.mipmap.icon_cancel);
             circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.icon_home)
                     .addSubMenu(Color.parseColor("#30A400"), R.mipmap.icon_search)
                     .addSubMenu(Color.parseColor("#FF4B32"), R.mipmap.icon_notify)
