@@ -48,6 +48,13 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                          switch (index) {
                                                              case 0:
                                                                  Toast.makeText(com.yanes.album.Game.this, "Home Button Clicked", Toast.LENGTH_SHORT).show();
+                                                                 try {
+                                                                     Thread.sleep(2000);
+                                                                 } catch (InterruptedException e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                                                 Intent intent=new Intent(Game.this,Game_simon.class);
+                                                                 startActivity(intent);
                                                                  break;
 
                                                              case 1:
@@ -71,6 +78,7 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                          @Override
                                                          public void onMenuOpened() {
                                                              Toast.makeText(com.yanes.album.Game.this, "Menu Opened", Toast.LENGTH_SHORT).show();
+
                                                          }
 
                                                          @Override
