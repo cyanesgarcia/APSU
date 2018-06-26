@@ -5,7 +5,7 @@
     <item
         android:id="@+id/HomeItem"
         android:color="#FFF"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@android:drawable/icon_home"
         android:title="Home"
         app:showAsAction="ifRoom|withText" />
 
