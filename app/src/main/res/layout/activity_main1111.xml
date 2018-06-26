@@ -10,7 +10,7 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/activity_aboutus"
+        layout="@layout/activity_game"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
