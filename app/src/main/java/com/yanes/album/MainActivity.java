@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
@@ -22,9 +23,11 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -37,9 +40,17 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     public static ArrayList<Integer> po = new ArrayList<>();
     android.support.v7.widget.Toolbar toolbar;
     public static int total = 0;
+    String result;
+    InputStream isr;
+    TextView textView;
+    TextView textView1;
+    String numbercoins="0";
+
 
     @Override
     protected void onResume() {
+        getData updateTask = new getData();
+        updateTask.execute();
         super.onResume();
     }
 
@@ -50,6 +61,21 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         NavigationView n = findViewById(R.id.nav_view);
         n.setItemIconTintList(null);
         n.setNavigationItemSelectedListener(this);
+
+        textView = (TextView) findViewById(R.id.coin);
+        textView1 = (TextView) findViewById(R.id.name_header);
+
+
+        runOnUiThread(new Runnable()
+        {
+
+            public void run()
+            {
+
+                textView.setText("0");
+
+            }
+        });
 
         toolbar = findViewById(R.id.toolbar);
 
@@ -199,7 +225,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         protected String doInBackground(String... strings) {
 
 
-                String state_url = "https://lidiayanesgarcia.000webhostapp.com/php2.php";
+                String state_url = "https://lidiayanesgarcia.000webhostapp.com/php4.php";
                 try {
 
                     HttpClient httpclient = new DefaultHttpClient();
@@ -239,29 +265,18 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
                     JSONArray jArray = new JSONArray(result);
 
+
                     for (int i = 0; i < jArray.length(); i++) {
-                        JSONObject json = jArray.getJSONObject(i);
+                        final JSONObject json = jArray.getJSONObject(i);
 
-                        //  STATES.add(json.getString("State"));
-                        // Data=Data+"\n"+  json.getString("State");
-                        // Log.i("aqui","str" + json.getString("State"));
-
-
-                        for(int ii=0; ii<STATES.size(); ii++) {
-                            if (STATES.get(ii).equals(json.getString("State"))) {
-                                check="si";
-                            }
-                        }
+if(json.getString("username").equals(login_page.username)) {
+    textView1.setText(json.getString("surname"));
+    //numbercoins = "100";
 
 
-                        if(check.equals("no")) {
-                            STATES.add(json.getString("State"));
-                        }
 
-                        check="no";
-                        //}
+}
 
-                        ima.add(json.getString("SImage"));
 
                     }
 

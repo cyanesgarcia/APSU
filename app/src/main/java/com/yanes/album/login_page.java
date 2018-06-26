@@ -16,6 +16,8 @@ public class login_page extends Activity {
    static String check="No";
     EditText UsernameEt, PasswordEt;
     public static Activity a;
+    static String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class login_page extends Activity {
     }
 
     public void OnLogin(View view) {
-        String username = UsernameEt.getText().toString();
+        username = UsernameEt.getText().toString();
         String password = PasswordEt.getText().toString();
         String type = "login";
 
