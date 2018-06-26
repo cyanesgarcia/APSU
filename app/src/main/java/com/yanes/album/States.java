@@ -44,7 +44,6 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
     String check="no";
     final static ArrayList<String> STATES =new ArrayList<>();
     final static ArrayList<String> ima = new ArrayList<>();
-   // Integer [] ima ={R.drawable.ca, R.drawable.fl,R.drawable.ga, R.drawable.hi, R.drawable.ny, R.drawable.tn,R.drawable.tx,R.drawable.tx};
     ArrayAdapter<String> adapter;
     @Override
     protected void onResume() {
@@ -56,10 +55,6 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
         updateTask.execute();
 
     }
-  /* static final String[] STATES={
-            "California(CA)","Florida(FL)","Georgia(GA)","Hawaii(HI)",
-            "New York(NY)", "Tennessee(TN)", "Texas(TX)",
-    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +82,6 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
     }
 
     private class getData extends AsyncTask<String, Void, String> {
-        String name;
 
         @Override
         protected String doInBackground(String... params) {
