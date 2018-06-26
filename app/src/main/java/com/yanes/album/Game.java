@@ -34,7 +34,7 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
 
 
             circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
-            circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.drawable.icon_menu, R.drawable.bblueoff);
+            circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.mipmap.icon_menu, R.mipmap.icon_cancel);
             circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.icon_home)
                     .addSubMenu(Color.parseColor("#30A400"), R.mipmap.icon_search)
                     .addSubMenu(Color.parseColor("#FF4B32"), R.mipmap.icon_notify)
@@ -48,6 +48,13 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                          switch (index) {
                                                              case 0:
                                                                  Toast.makeText(com.yanes.album.Game.this, "Home Button Clicked", Toast.LENGTH_SHORT).show();
+                                                                 try {
+                                                                     Thread.sleep(2000);
+                                                                 } catch (InterruptedException e) {
+                                                                     e.printStackTrace();
+                                                                 }
+                                                                 Intent intent=new Intent(Game.this,Game_simon.class);
+                                                                 startActivity(intent);
                                                                  break;
 
                                                              case 1:
@@ -71,6 +78,7 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                          @Override
                                                          public void onMenuOpened() {
                                                              Toast.makeText(com.yanes.album.Game.this, "Menu Opened", Toast.LENGTH_SHORT).show();
+
                                                          }
 
                                                          @Override
