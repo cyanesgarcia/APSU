@@ -43,7 +43,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     String result;
     InputStream isr;
     TextView textView;
-    TextView textView1;
     String numbercoins="0";
 
 
@@ -63,19 +62,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         n.setNavigationItemSelectedListener(this);
 
         textView = (TextView) findViewById(R.id.coin);
-        textView1 = (TextView) findViewById(R.id.name_header);
 
 
-        runOnUiThread(new Runnable()
-        {
-
-            public void run()
-            {
-
-                textView.setText("0");
-
-            }
-        });
 
         toolbar = findViewById(R.id.toolbar);
 
@@ -116,6 +104,19 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             }
 
         });
+
+    }
+
+    private void actualizar() {
+        Log.i("aqui", " ");
+    /*    runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                textView.setText(numbercoins);
+
+            }
+        });*/
+       Log.i("aquiiiii", " ");
 
     }
 
@@ -269,14 +270,15 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                     for (int i = 0; i < jArray.length(); i++) {
                         final JSONObject json = jArray.getJSONObject(i);
 
-if(json.getString("username").equals(login_page.username)) {
-    textView1.setText(json.getString("surname"));
-    //numbercoins = "100";
+
+                      if(json.getString("username").equals(login_page.username)) {
+                          Log.i("llllleggggg", " i");
+                          arriba a = new arriba();
+                              a.setUsername("Hola");
 
 
 
 }
-
 
                     }
 
