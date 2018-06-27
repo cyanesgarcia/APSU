@@ -3,7 +3,9 @@ package com.yanes.album;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -52,7 +54,14 @@ public class register_page extends Activity implements View.OnClickListener {
             alertDialog.show();
           Log.i("Registrado", " ");
 
-          Intent intt
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(register_page.this, login_page.class);
+                    startActivity(intent);
+                }
+            }, 800);
+
         }
     }
 }
