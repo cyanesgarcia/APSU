@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -47,14 +48,15 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                      public void onMenuSelected(int index) {
                                                          switch (index) {
                                                              case 0:
-                                                                 Toast.makeText(com.yanes.album.Game.this, "Home Button Clicked", Toast.LENGTH_SHORT).show();
-                                                                 Intent intent=new Intent(Game.this,Game_simon.class);
-                                                                 startActivity(intent);
-                                                                 try {
-                                                                     Thread.sleep(2000);
-                                                                 } catch (InterruptedException e) {
-                                                                     e.printStackTrace();
-                                                                 }
+                                                                 new Handler().postDelayed(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         Intent intent = new Intent(Game.this, Game_simon.class);
+                                                                         Game.this.startActivity(intent);
+                                                                         Game.this.finish();
+                                                                     }
+                                                                 }, 1000);
+
                                                                  break;
 
                                                              case 1:
@@ -74,19 +76,6 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                      }
                                                  }
             );
-            circleMenu.setOnMenuStatusChangeListener(new OnMenuStatusChangeListener() {
-                                                         @Override
-                                                         public void onMenuOpened() {
-                                                             Toast.makeText(com.yanes.album.Game.this, "Menu Opened", Toast.LENGTH_SHORT).show();
-
-                                                         }
-
-                                                         @Override
-                                                         public void onMenuClosed() {
-                                                             Toast.makeText(com.yanes.album.Game.this, "Menu Closed", Toast.LENGTH_SHORT).show();
-
-                                                         }
-                });
                 toolbar = findViewById(R.id.toolbar);
 
 
@@ -100,7 +89,6 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Log.i("lleganav", "hh"+c);
                         if (item.getItemId() == R.id.HomeItem) {
                             c= "MainActivity";
                         } else if (item.getItemId() == R.id.GameItem) {

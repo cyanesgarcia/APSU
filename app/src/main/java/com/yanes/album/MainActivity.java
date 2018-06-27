@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             public void run()
             {
 
-                textView.setText("0");
+                textView.setText("00000");
 
             }
         });
@@ -270,7 +270,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                         final JSONObject json = jArray.getJSONObject(i);
 
 if(json.getString("username").equals(login_page.username)) {
-    textView1.setText(json.getString("surname"));
+   textView1.setText(/*json.getString("surname")*/"holallalalalalal");
     //numbercoins = "100";
 
 
