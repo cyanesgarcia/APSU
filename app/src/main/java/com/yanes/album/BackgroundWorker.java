@@ -27,6 +27,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
     Context context;
     AlertDialog alertDialog;
     String check1;
+    String type=" ";
     public String getCheck1() {
         return check1;
     }
@@ -44,11 +45,13 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... voids) {
-        String type = voids[0];
+        type = voids[0];
         String login_url = "http://lidiayanesgarcia.000webhostapp.com/login.php";
         String register_url = "http://lidiayanesgarcia.000webhostapp.com/register.php";
+        Log.i("eeeee4","e");
         if(type.equals("login")){
             try {
+                Log.i("eeeee5","e");
                 String user_name = voids[1];
                 String password = voids[2];
                 URL url = new URL(login_url);
@@ -88,6 +91,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
             }
         }else if(type.equals("register")){
             try {
+                Log.i("eeeee6","e");
                 String name = voids[1];
                 String surname = voids[2];
                 String age = voids[3];
@@ -135,32 +139,38 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPreExecute() {
-        alertDialog = new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Login Status");
-        Log.i("probar", "1");
+
+            alertDialog = new AlertDialog.Builder(context).create();
+            alertDialog.setTitle("Login Status");
+            Log.i("probar", "1");
+
     }
 public void post(Activity a){
         Log.i("hola", "hola");
-    if (login_page.check.equals("Yes")) {
-        a.startActivity(new Intent(a, MainActivity.class));
+    if (login_page.check.equals("Yes") && type.equals("login")) {
+
+            a.startActivity(new Intent(a, MainActivity.class));
+        }
     }
-}
 
     @Override
     protected void onPostExecute(String result) {
-       if(!result.equals(" login not success")){
-           login_page.check="Yes";
-           setCheck1("Yes");
-           Log.i("String1", "s "+ getCheck1());
-       }else{
-           login_page.check="No";
-           setCheck1("No");
-       }
-        alertDialog.setMessage(result);
+        if(type.equals("login")) {
+            if (!result.equals(" login not success")) {
+                login_page.check = "Yes";
+                setCheck1("Yes");
+                Log.i("String1", "s " + getCheck1());
+            } else {
+                login_page.check = "No";
+                setCheck1("No");
+            }
+            Log.i("resulttttt", " "+ result);
+            alertDialog.setMessage(result);
 
-        alertDialog.show();
+            alertDialog.show();
 
-        post(login_page.a);
+            post(login_page.a);
+        }
     }
 
     @Override
