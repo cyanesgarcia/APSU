@@ -155,11 +155,13 @@ public void post(Activity a){
 
     @Override
     protected void onPostExecute(String result) {
+        Log.i("String1", "s " +result);
         if(type.equals("login")) {
+            Log.i("String12", "s " +result);
             if (!result.equals(" login not success")) {
                 login_page.check = "Yes";
                 setCheck1("Yes");
-                Log.i("String1", "s " + getCheck1());
+
             } else {
                 login_page.check = "No";
                 setCheck1("No");

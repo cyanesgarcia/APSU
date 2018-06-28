@@ -28,18 +28,11 @@ public class login_page extends Activity implements View.OnClickListener{
         PasswordEt = (EditText)findViewById(R.id.etPassword);
         Button button=(Button) findViewById(R.id.btnRegister);
         button.setOnClickListener(this);
+        Button button1 = (Button) findViewById(R.id.btnLogin);
+        button1.setOnClickListener(this);
         Log.i("eeeee1","e");
     }
 
-    public void OnLogin(View view) {
-        username = UsernameEt.getText().toString();
-        String password = PasswordEt.getText().toString();
-        String type = "login";
-        Log.i("eeeee2","e");
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, username, password);
-
-    }
 
     @Override
     public void onClick(View view) {
@@ -47,6 +40,12 @@ public class login_page extends Activity implements View.OnClickListener{
             Log.i("eeeee3","e");
             Intent intent = new Intent(this, register_page.class);
             startActivity(intent);
+        }else if(view.getId()==R.id.btnLogin){
+            username = UsernameEt.getText().toString();
+            String password = PasswordEt.getText().toString();
+            String type = "login";
+            BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+            backgroundWorker.execute(type, username, password);
         }
     }
 }

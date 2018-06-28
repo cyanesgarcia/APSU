@@ -43,7 +43,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     String result;
     InputStream isr;
     TextView textView;
-    String numbercoins="0";
 
 
     @Override
@@ -117,18 +116,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
     }
 
-    private void actualizar() {
-        Log.i("aqui", " ");
-    /*    runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                textView.setText(numbercoins);
 
-            }
-        });*/
-       Log.i("aquiiiii", " ");
-
-    }
 
     public void start_activity_menu() {
         Intent intent = null;
