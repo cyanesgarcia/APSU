@@ -52,7 +52,6 @@ public class register_page extends Activity implements View.OnClickListener {
             alertDialog.show();
           Log.i("Registrado", " ");
 
-          Intent intt
         }
     }
 }

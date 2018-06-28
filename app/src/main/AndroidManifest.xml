@@ -27,6 +27,11 @@
         <activity android:name=".Info" android:screenOrientation="portrait"/>
         <activity android:name=".Game_simon" android:screenOrientation="portrait"/>
         <activity android:name=".Game" android:screenOrientation="portrait"/>
+        <activity android:name=".Game_Blackjack" android:screenOrientation="landscape"/>
+        <activity android:name=".Blackjack_Play" android:screenOrientation="landscape"/>
+
+
+
     </application>
 
 </manifest>
