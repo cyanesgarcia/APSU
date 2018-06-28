@@ -60,7 +60,15 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                                  break;
 
                                                              case 1:
-                                                                 Toast.makeText(com.yanes.album.Game.this, "Search Button Clicked", Toast.LENGTH_SHORT).show();
+                                                                 new Handler().postDelayed(new Runnable() {
+                                                                     @Override
+                                                                     public void run() {
+                                                                         Intent intent = new Intent(Game.this, Game_Blackjack.class);
+                                                                         Game.this.startActivity(intent);
+                                                                         Game.this.finish();
+                                                                     }
+                                                                 }, 1000);
+
                                                                  break;
 
                                                              case 2:
