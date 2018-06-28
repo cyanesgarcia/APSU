@@ -36,8 +36,8 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
 
             circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
             circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.mipmap.icon_menu, R.mipmap.icon_cancel);
-            circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.icon_home)
-                    .addSubMenu(Color.parseColor("#30A400"), R.mipmap.icon_search)
+            circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.icon_simon)
+                    .addSubMenu(Color.parseColor("#30A400"), R.mipmap.icon_poker)
                     .addSubMenu(Color.parseColor("#FF4B32"), R.mipmap.icon_notify)
                     .addSubMenu(Color.parseColor("#8A39FF"), R.mipmap.icon_setting)
                     .addSubMenu(Color.parseColor("#FF6A00"), R.mipmap.icon_gps);
@@ -71,7 +71,7 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
 
                                                                  break;
 
-                                                             case 2:
+                                                              case 2:
                                                                  Toast.makeText(com.yanes.album.Game.this, "Modify Button Clicked", Toast.LENGTH_SHORT).show();
                                                                  break;
                                                              case 3:
