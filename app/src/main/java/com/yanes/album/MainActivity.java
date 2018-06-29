@@ -62,7 +62,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
         textView = (TextView) findViewById(R.id.coin);
 
-
+/*
         runOnUiThread(new Runnable()
         {
 
@@ -73,6 +73,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
             }
         });
+        */
 
         toolbar = findViewById(R.id.toolbar);
 
