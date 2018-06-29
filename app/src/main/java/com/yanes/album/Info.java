@@ -222,7 +222,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         View mView = getLayoutInflater().inflate(R.layout.customdialog, null);
 
         //front
-
+/*
         TextView mText = (TextView)mView.findViewById(R.id.title);
         mText.setText(Html.fromHtml(fin.getName()));
        ImageView mImagen = (ImageView) mView.findViewById(R.id.i);
@@ -236,7 +236,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         mText2.setText(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName() + "</p>" + "<p><b>State: </b>" + fin.getState() + "</p>" +
                 "<p><b>Type: </b>" + fin.getType() + "</p>" + "<p><b>Description: </b>" + fin.getDescription() + "</p>" + "</html>"));
 
-
+*/
        mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
         dialog.show();
