@@ -38,7 +38,7 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
             circleMenu.setMainMenu(Color.parseColor("#CDCDCD"), R.mipmap.icon_menu, R.mipmap.icon_cancel);
             circleMenu.addSubMenu(Color.parseColor("#258CFF"), R.mipmap.icon_simon)
                     .addSubMenu(Color.parseColor("#30A400"), R.mipmap.icon_poker)
-                    .addSubMenu(Color.parseColor("#FFFF99"), R.mipmap.icon_rsp)
+                    .addSubMenu(Color.parseColor("#FF4B32"), R.mipmap.icon_rsp)
                     .addSubMenu(Color.parseColor("#8A39FF"), R.mipmap.icon_setting)
                     .addSubMenu(Color.parseColor("#FF6A00"), R.mipmap.icon_gps);
 
