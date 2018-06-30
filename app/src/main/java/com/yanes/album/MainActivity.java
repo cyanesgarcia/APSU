@@ -32,6 +32,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
+    static TextView textView;
     private static final int REQUEST_CODE_ADD = 100;
     public static String c = "";
     public static String Activity_KEY = "activity";
@@ -42,13 +43,14 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     public static int total = 0;
     String result;
     InputStream isr;
-    TextView textView;
+    TextView textView1;
 
 
     @Override
     protected void onResume() {
         getData updateTask = new getData();
         updateTask.execute();
+
         super.onResume();
     }
 
@@ -60,7 +62,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         n.setItemIconTintList(null);
         n.setNavigationItemSelectedListener(this);
 
-        textView = (TextView) findViewById(R.id.coin);
 
 /*
         runOnUiThread(new Runnable()
@@ -69,11 +70,11 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             public void run()
             {
 
-                textView.setText("00000");
+
 
             }
         });
-        */
+*/
 
         toolbar = findViewById(R.id.toolbar);
 
@@ -219,7 +220,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
     }
 
-    private class getData extends AsyncTask<String, Void, String> {
+    public class getData extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -268,16 +269,22 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
                     for (int i = 0; i < jArray.length(); i++) {
                         final JSONObject json = jArray.getJSONObject(i);
-
+/*
 
                       if(json.getString("username").equals(login_page.username)) {
-                          Log.i("llllleggggg", " i");
-                          arriba a = new arriba();
-                              a.setUsername("Hola");
+                          Log.i("llllleggggg", " i");*/
+                        Log.i("holeee11"," leee");
+
+                         arriba.setStringUsername("jjj");
+                        Log.i("holeee1"," leee");
+
+                        textView.setText("jjjj");
+                        Log.i("holeee2"," leee");
+                        //textView.setText("Hola");
 
 
 
-}
+//}
 
 
                     }
@@ -290,5 +297,26 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                 return "Executed";
             }
         }
+    public static class arriba extends Activity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.nav_header_main);
+
+            MainActivity.textView=(TextView) findViewById(R.id.name_header);
+
+
+        }
+
+
+        public static void setStringUsername(String user_name){
+            Log.i("holeee33"," leee");
+
+            MainActivity.textView.setText("jjjj");
+            Log.i("holeee331"," leee");
+        }
+    }
+
 
 }
