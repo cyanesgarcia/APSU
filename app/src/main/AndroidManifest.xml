@@ -33,7 +33,6 @@
         <activity android:name=".Game_RPS" android:screenOrientation="portrait"/>
 
 
-
     </application>
 
 </manifest>
