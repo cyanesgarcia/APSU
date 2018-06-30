@@ -55,7 +55,7 @@ public class RockPaperScissors extends Activity implements View.OnClickListener 
                 game_money = total_money;
                 total_money = 0;
                 image.setImageResource(0);
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, Game_RPS.class);
                 intent.putExtra(SGameMoney, game_money);
                 intent.putExtra(STotalMoney, total_money);
                 startActivityForResult(intent, REQUEST_CODE_ADD);
@@ -66,7 +66,7 @@ public class RockPaperScissors extends Activity implements View.OnClickListener 
         } else if (view.getId() == R.id.bdeal) {
             if ((game_money!=0)){
                 image.setImageResource(0);
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, Game_RPS.class);
                 intent.putExtra(SGameMoney, game_money);
                 intent.putExtra(STotalMoney,total_money);
                 startActivityForResult(intent, REQUEST_CODE_ADD);
