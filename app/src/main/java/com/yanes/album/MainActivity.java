@@ -278,7 +278,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                          arriba.setStringUsername("jjj");
                         Log.i("holeee1"," leee");
 
-                        textView.setText("jjjj");
                         Log.i("holeee2"," leee");
                         //textView.setText("Hola");
 
