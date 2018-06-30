@@ -32,7 +32,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
-    static TextView textView;
+    //static TextView textView;
     private static final int REQUEST_CODE_ADD = 100;
     public static String c = "";
     public static String Activity_KEY = "activity";
@@ -43,7 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     public static int total = 0;
     String result;
     InputStream isr;
-    TextView textView1;
+
 
 
     @Override
@@ -269,21 +269,25 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
                     for (int i = 0; i < jArray.length(); i++) {
                         final JSONObject json = jArray.getJSONObject(i);
-/*
+
+
 
                       if(json.getString("username").equals(login_page.username)) {
-                          Log.i("llllleggggg", " i");*/
+                          Log.i("llllleggggg", " i");
+
+                        View mView = getLayoutInflater().inflate(R.layout.nav_header_main, null);
                         Log.i("holeee11"," leee");
-
-                         arriba.setStringUsername("jjj");
+                        TextView textView1=(TextView) mView.findViewById(R.id.name_header);
                         Log.i("holeee1"," leee");
-
+                        textView1.setText("hola");
                         Log.i("holeee2"," leee");
+
+
                         //textView.setText("Hola");
 
 
 
-//}
+}
 
 
                     }
@@ -296,6 +300,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                 return "Executed";
             }
         }
+        /*
     public static class arriba extends Activity {
 
         @Override
@@ -316,6 +321,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
             Log.i("holeee331"," leee");
         }
     }
-
+*/
 
 }
