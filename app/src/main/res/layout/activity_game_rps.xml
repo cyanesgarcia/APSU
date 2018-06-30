@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFFF99">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:orientation="vertical"
+    android:background="#FFFF99">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+    <TextView
+        android:id="@+id/totalmoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" "
+        android:textColor="#F00"
+        android:textSize="30sp"
+        android:layout_gravity="end"
+        android:layout_weight="1"
+        android:layout_marginStart="5dp"/>
+
+    <TextView
+        android:id="@+id/gamemoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#F00"
+        android:textSize="30sp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:layout_marginEnd="5dp"/>
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_cpu"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:scaleType="centerInside"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:id="@+id/iv_me"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:scaleType="centerInside"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/b_rock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ROCK" />
+        <Button
+            android:id="@+id/b_paper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PAPER"/>
+        <Button
+            android:id="@+id/b_scissors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SCISSORS"/>
+
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
