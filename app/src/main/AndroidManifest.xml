@@ -29,6 +29,8 @@
         <activity android:name=".Game" android:screenOrientation="portrait"/>
         <activity android:name=".Game_Blackjack" android:screenOrientation="landscape"/>
         <activity android:name=".Blackjack_Play" android:screenOrientation="landscape"/>
+        <activity android:name=".RockPaperScissors" android:screenOrientation="portrait"/>
+        <activity android:name=".Game_RPS" android:screenOrientation="portrait"/>
 
 
 
