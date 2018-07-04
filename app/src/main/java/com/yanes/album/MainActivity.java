@@ -261,14 +261,35 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
 
                         if(json.getString("username").equals(login_page.username)) {
-                            Log.i("llllleggggg", " i");
-numbercoins=json.getString("coins");
-        username=json.getString("surname");
-        Log.i("number", " "+ numbercoins);
-                            Log.i("number", " "+ username);
 
-                            f1();
-                            Log.i("llllleggggg222", " i");
+
+                            runOnUiThread(new Runnable()
+                            {
+
+                                public void run()
+                                {
+
+                                    NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
+                                    TextView textView1=(TextView) mView.findViewById(R.id.name_header);
+                                    try {
+                                        Log.i("nombre", " i"+ json.getString("name"));
+                                        textView1.setText(json.getString("name"));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                    try {
+                                        Thread.sleep(1500);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            });
+                            TextView textView =(TextView) findViewById(R.id.coin);
+                            textView.setText(json.getString("coins"));
+                            Log.i("llllleggggg33222", " i");
                            // f2();
                             /*
                             NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
@@ -310,28 +331,10 @@ numbercoins=json.getString("coins");
             }
             public void f1(){
 
-                Log.i("hhh", "hhh "+numbercoins);
-              runOnUiThread(new Runnable()
-                {
-
-                    public void run()
-                    {
-
-                NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
-                TextView textView1=(TextView) mView.findViewById(R.id.name_header);
-                textView1.setText(username);
-
-                Log.i("llllleggggg33", " i");
-
-                    }
-                });
-                TextView textView =(TextView) findViewById(R.id.coin);
-                textView.setText(numbercoins);
-            }
-
-            public void f2(){
 
             }
+
+
         }
 
 

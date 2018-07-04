@@ -157,21 +157,32 @@ public void post(Activity a){
     protected void onPostExecute(String result) {
         Log.i("String1", "s " +result);
         if(type.equals("login")) {
-            Log.i("String12", "s " +result);
-            if (!result.equals(" login not success")) {
-                login_page.check = "Yes";
-                setCheck1("Yes");
+            if (result != null) {
+                Log.i("String12", "s " + result);
+                String r = result;
+                Log.i("String122", "s " + r);
 
+                    if (!result.equals(" login not success")) {
+                        login_page.check = "Yes";
+                        setCheck1("Yes");
+
+                    } else {
+                        login_page.check = "No";
+                        setCheck1("No");
+                    }
+
+                    Log.i("resulttttt", " " + result);
+                    alertDialog.setMessage(result);
+
+                alertDialog.show();
+
+                post(login_page.a);
             } else {
-                login_page.check = "No";
-                setCheck1("No");
+                alertDialog.setMessage("The server is inactive, it will wake up in less than 1 hour");
+                alertDialog.show();
             }
-            Log.i("resulttttt", " "+ result);
-            alertDialog.setMessage(result);
 
-            alertDialog.show();
 
-            post(login_page.a);
         }
     }
 

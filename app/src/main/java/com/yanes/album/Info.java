@@ -16,8 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -60,6 +62,10 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_union);
+
+
+
+
         lv = (ListView) findViewById(R.id.listview);
         lv.setBackgroundColor(Color.parseColor("#4597CD"));
 
@@ -79,6 +85,9 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         );
 
         lv.setOnItemClickListener(this);
+
+
+
     }
 
 
@@ -156,7 +165,6 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         Log.i("este", "position " + parent);
 
-
         for(int ii=0; ii<MainActivity.check.size();ii++){
             if(fin.getName().equals(MainActivity.check.get(ii))){
                 card_key=1;
@@ -221,8 +229,9 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(Info.this);
         View mView = getLayoutInflater().inflate(R.layout.customdialog, null);
 
+
         //front
-/*
+
         TextView mText = (TextView)mView.findViewById(R.id.title);
         mText.setText(Html.fromHtml(fin.getName()));
        ImageView mImagen = (ImageView) mView.findViewById(R.id.i);
@@ -236,7 +245,25 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         mText2.setText(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName() + "</p>" + "<p><b>State: </b>" + fin.getState() + "</p>" +
                 "<p><b>Type: </b>" + fin.getType() + "</p>" + "<p><b>Description: </b>" + fin.getDescription() + "</p>" + "</html>"));
 
-*/
+
+
+
+        final EasyFlipView easyFlipView = (EasyFlipView) mView.findViewById(R.id.easyFlipView);
+        easyFlipView.setFlipDuration(1000);
+        easyFlipView.setFlipEnabled(true);
+        mView.findViewById(R.id.imgFrontCard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               easyFlipView.flipTheView();
+            }
+        });
+
+        mView.findViewById(R.id.imgBackCard).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               easyFlipView.flipTheView();
+            }
+        });
        mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
         dialog.show();
