@@ -32,7 +32,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
-    //static TextView textView;
     private static final int REQUEST_CODE_ADD = 100;
     public static String c = "";
     public static String Activity_KEY = "activity";
@@ -43,7 +42,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     public static int total = 0;
     String result;
     InputStream isr;
-
+    String numbercoins;
+    String username;
 
 
     @Override
@@ -63,18 +63,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         n.setNavigationItemSelectedListener(this);
 
 
-/*
-        runOnUiThread(new Runnable()
-        {
 
-            public void run()
-            {
-
-
-
-            }
-        });
-*/
 
         toolbar = findViewById(R.id.toolbar);
 
@@ -271,23 +260,64 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                         final JSONObject json = jArray.getJSONObject(i);
 
 
-
-                      if(json.getString("username").equals(login_page.username)) {
-                          Log.i("llllleggggg", " i");
-
-                        View mView = getLayoutInflater().inflate(R.layout.nav_header_main, null);
-                        Log.i("holeee11"," leee");
-                        TextView textView1=(TextView) mView.findViewById(R.id.name_header);
-                        Log.i("holeee1"," leee");
-                        textView1.setText("hola");
-                        Log.i("holeee2"," leee");
+                        if(json.getString("username").equals(login_page.username)) {
 
 
-                        //textView.setText("Hola");
+                            runOnUiThread(new Runnable()
+                            {
+
+                                public void run()
+                                {
+
+                                    NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
+                                    TextView textView1=(TextView) mView.findViewById(R.id.name_header);
+                                    try {
+                                        Log.i("nombre", " i"+ json.getString("name"));
+                                        textView1.setText(json.getString("name"));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                    try {
+                                        Thread.sleep(1500);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            });
+                            TextView textView =(TextView) findViewById(R.id.coin);
+                            textView.setText(json.getString("coins"));
+                            Log.i("llllleggggg33222", " i");
+                           // f2();
+                            /*
+                            NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
+                            TextView textView1=(TextView) mView.findViewById(R.id.name_header);
+                            textView1.setText(json.getString("name"));
+*/
+
+                        }/*
+                        if(json.getString("username").equals(login_page.username)) {
+                            Log.i("llllleggggg1", " i");
+                            runOnUiThread(new Runnable()
+                            {
+
+                                public void run()
+                                {
+                            TextView textView =(TextView) findViewById(R.id.coin);
+                                    try {
+                                        textView.setText(json.getString("coins"));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
 
 
 
-}
+                        }*/
+
 
 
                     }
@@ -299,28 +329,13 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                 }
                 return "Executed";
             }
-        }
-        /*
-    public static class arriba extends Activity {
+            public void f1(){
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.nav_header_main);
 
-            MainActivity.textView=(TextView) findViewById(R.id.name_header);
+            }
 
 
         }
 
-
-        public static void setStringUsername(String user_name){
-            Log.i("holeee33"," leee");
-
-            MainActivity.textView.setText("jjjj");
-            Log.i("holeee331"," leee");
-        }
-    }
-*/
 
 }

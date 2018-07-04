@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_activity_root"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/transparent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:flipOnTouch="true">
 
 
-    <RelativeLayout
-        android:id="@+id/main_activity_card_face"
-        android:layout_width="300dp"
-        android:layout_height="407dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/byellow"
-        android:clickable="true"
-        android:onClick="onCardClick"
-        android:padding="5dp" >
-    </RelativeLayout>
+<com.wajahatkarim3.easyflipview.EasyFlipView
+    android:id="@+id/easyFlipView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:flipDuration="400"
+    app:flipType="horizontal"
+    >
 
-    <RelativeLayout
-        android:id="@+id/main_activity_card_back"
-        android:layout_width="300dp"
-        android:layout_height="407dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/bblue"
-        android:clickable="true"
-        android:onClick="onCardClick"
-        android:visibility="gone" >
+    <include layout="@layout/card_layout_back"
+        android:id="@+id/imgBackCard"/>
 
-</RelativeLayout>
-</RelativeLayout>
+    <include layout="@layout/card_layout_front"
+        android:id="@+id/imgFrontCard"/>
 
+
+
+
+</com.wajahatkarim3.easyflipview.EasyFlipView>
+</LinearLayout>
 
 
