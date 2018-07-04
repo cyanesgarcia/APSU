@@ -221,6 +221,8 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(Info.this);
         View mView = getLayoutInflater().inflate(R.layout.customdialog, null);
 
+
+
         //front
 /*
         TextView mText = (TextView)mView.findViewById(R.id.title);
@@ -237,11 +239,36 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
                 "<p><b>Type: </b>" + fin.getType() + "</p>" + "<p><b>Description: </b>" + fin.getDescription() + "</p>" + "</html>"));
 
 */
-       mBuilder.setView(mView);
-        AlertDialog dialog = mBuilder.create();
+      mBuilder.setView(mView);
+       AlertDialog dialog = mBuilder.create();
         dialog.show();
 
 
+    }
+    public void onCardClick(View view)
+    {
+        Log.i("sillega","d");
+flipCard();
+    }
+
+
+    private void flipCard()
+    {
+        Log.i("sillega1","d");
+        View rootLayout = (View) findViewById(R.id.main_activity_root);
+        View cardFace = (View) findViewById(R.id.main_activity_card_face);
+        View cardBack = (View) findViewById(R.id.main_activity_card_back);
+        Log.i("sillega2","d");
+        FlipAnimation flipAnimation = new FlipAnimation(cardFace, cardBack);
+        Log.i("sillega3","d");
+        if (cardFace.getVisibility() == View.GONE)
+        {
+            Log.i("sillega4","d");
+            flipAnimation.reverse();
+        }
+
+        rootLayout.startAnimation(flipAnimation);
+        Log.i("sillega5","d");
     }
 
 
