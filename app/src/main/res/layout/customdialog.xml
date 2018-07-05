@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="600dp"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:flipOnTouch="true">
@@ -10,9 +10,7 @@
     android:id="@+id/easyFlipView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:flipDuration="400"
-    app:flipType="horizontal"
-    >
+    app:flipType="horizontal">
 
     <include layout="@layout/card_layout_back"
         android:id="@+id/imgBackCard"/>

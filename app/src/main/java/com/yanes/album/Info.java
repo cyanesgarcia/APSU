@@ -229,7 +229,6 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(Info.this);
         View mView = getLayoutInflater().inflate(R.layout.customdialog, null);
 
-
         //front
 
         TextView mText = (TextView)mView.findViewById(R.id.title);
@@ -258,7 +257,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
             }
         });
 
-        mView.findViewById(R.id.imgBackCard).setOnClickListener(new View.OnClickListener() {
+       mView.findViewById(R.id.imgBackCard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                easyFlipView.flipTheView();
