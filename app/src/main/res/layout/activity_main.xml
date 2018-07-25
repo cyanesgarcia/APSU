@@ -31,30 +31,30 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageView2"
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
                         android:background="@drawable/coin"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.774"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
                         android:id="@+id/coin"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="right"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="coin"
+                        android:text=" "
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.929"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
 
                 </android.support.constraint.ConstraintLayout>
             </android.support.v7.widget.Toolbar>
@@ -142,19 +142,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
             android:layout_alignBottom="@id/l"
+            android:layout_gravity="bottom"
             android:theme="@style/AppTheme.AppBarOverlay">
 
 
             <android.support.design.widget.BottomNavigationView
-                android:background="#182c7d"
                 android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
+                android:background="#182c7d"
                 design:menu="@menu/menu_navigation" />
 
         </FrameLayout>

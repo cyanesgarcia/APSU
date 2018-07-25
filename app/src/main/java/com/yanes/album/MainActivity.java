@@ -271,6 +271,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
                                     NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
                                     TextView textView1=(TextView) mView.findViewById(R.id.name_header);
+
                                     try {
                                         Log.i("nombre", " i"+ json.getString("name"));
                                         textView1.setText(json.getString("name"));
@@ -279,44 +280,15 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                                     }
 
 
-                                    try {
-                                        Thread.sleep(1500);
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
+
 
                                 }
                             });
                             TextView textView =(TextView) findViewById(R.id.coin);
                             textView.setText(json.getString("coins"));
-                            Log.i("llllleggggg33222", " i");
-                           // f2();
-                            /*
-                            NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
-                            TextView textView1=(TextView) mView.findViewById(R.id.name_header);
-                            textView1.setText(json.getString("name"));
-*/
-
-                        }/*
-                        if(json.getString("username").equals(login_page.username)) {
-                            Log.i("llllleggggg1", " i");
-                            runOnUiThread(new Runnable()
-                            {
-
-                                public void run()
-                                {
-                            TextView textView =(TextView) findViewById(R.id.coin);
-                                    try {
-                                        textView.setText(json.getString("coins"));
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            });
 
 
-
-                        }*/
+                        }
 
 
 
@@ -329,11 +301,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                 }
                 return "Executed";
             }
-            public void f1(){
-
-
-            }
-
 
         }
 
