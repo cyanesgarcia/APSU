@@ -3,6 +3,7 @@ package com.yanes.album;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -13,25 +14,59 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hitomi.cmlibrary.CircleMenu;
 import com.hitomi.cmlibrary.OnMenuSelectedListener;
 import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
 
+import org.json.JSONException;
 
-    public class Game extends Activity implements NavigationView.OnNavigationItemSelectedListener {
+
+public class Game extends Activity implements NavigationView.OnNavigationItemSelectedListener {
         private CircleMenu circleMenu;
         android.support.v7.widget.Toolbar toolbar;
         public static String c = "";
 
-        @Override
+    TextView textView;
+    TextView textView1;
+
+    NavigationView n;
+
+    @Override
+    protected void onResume() {
+
+
+        UU u = new UU();
+        u.execute();
+        textView =(TextView) findViewById(R.id.coin);
+
+
+        super.onResume();
+    }
+
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main1111);
-            NavigationView n = findViewById(R.id.nav_view1);
+            n = findViewById(R.id.nav_view1);
             n.setItemIconTintList(null);
             n.setNavigationItemSelectedListener(this);
+
+            toolbar = findViewById(R.id.toolbar);
+
+
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+
+
+
+
 
 
             circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
@@ -91,16 +126,9 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
                                                      }
                                                  }
             );
-                toolbar = findViewById(R.id.toolbar);
 
 
-                DrawerLayout drawer = findViewById(R.id.drawer_layout);
-                ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-                BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -137,10 +165,9 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
         }
 
 
-
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Log.i("lleegaeeee", "bbfhsjdfnsdjf");
             int id = item.getItemId();
 
 
@@ -180,5 +207,27 @@ import com.hitomi.cmlibrary.OnMenuStatusChangeListener;
             else
                 finish();
         }
-    }
+
+        public class UU extends AsyncTask<Void,Void,Void> {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                runOnUiThread(new Runnable()
+                {
+
+                    public void run()
+                    {
+
+
+                textView1 = (TextView) n.findViewById(R.id.name_header);
+                textView1.setText(MainActivity.username);
+
+                    }
+                });
+                textView.setText(MainActivity.numbercoins);
+
+                return null;
+            }
+        }
+        }
+
 

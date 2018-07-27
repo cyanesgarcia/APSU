@@ -42,15 +42,17 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     public static int total = 0;
     String result;
     InputStream isr;
-    String numbercoins;
-    String username;
-
+    public static String numbercoins;
+    public static String username;
+    TextView textView1;
+    TextView textView;
+    NavigationView n;
 
     @Override
     protected void onResume() {
         getData updateTask = new getData();
         updateTask.execute();
-
+        textView =(TextView) findViewById(R.id.coin);
         super.onResume();
     }
 
@@ -58,15 +60,16 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-        NavigationView n = findViewById(R.id.nav_view);
+        n = findViewById(R.id.nav_view);
         n.setItemIconTintList(null);
         n.setNavigationItemSelectedListener(this);
 
 
 
+        Log.i("este1","111");
+
 
         toolbar = findViewById(R.id.toolbar);
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,11 +88,12 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         game.setOnClickListener(this);
 
 
+        Log.i("este2","111");
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Log.i("lleganav", "hh" + c);
+
                 if (item.getItemId() == R.id.HomeItem) {
                     c = "MainActivity";
                 } else if (item.getItemId() == R.id.GameItem) {
@@ -151,6 +155,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
+        Log.i("este3","111");
         int id = item.getItemId();
 
 
@@ -269,12 +275,11 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                                 public void run()
                                 {
 
-                                    NavigationView mView = (NavigationView) findViewById(R.id.nav_view);
-                                    TextView textView1=(TextView) mView.findViewById(R.id.name_header);
-
                                     try {
                                         Log.i("nombre", " i"+ json.getString("name"));
+                                        textView1=(TextView) n.findViewById(R.id.name_header);
                                         textView1.setText(json.getString("name"));
+                                        username=json.getString("name");
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
@@ -284,9 +289,9 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
                                 }
                             });
-                            TextView textView =(TextView) findViewById(R.id.coin);
-                            textView.setText(json.getString("coins"));
-
+                           textView.setText(json.getString("coins"));
+                            numbercoins= json.getString("coins");
+Log.i("hhhhhh","jjj");
 
                         }
 
