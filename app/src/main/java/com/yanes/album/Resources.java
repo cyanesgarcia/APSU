@@ -214,8 +214,8 @@ public class Resources extends Activity implements  NavigationView.OnNavigationI
             intent=new Intent(this,MainActivity.class);
             startActivity(intent);
         }else if(c.equals("Game")){
-            intent=new Intent(this,Game.class);
-            startActivity(intent);
+          //  intent=new Intent(this,Game.class);
+          //  startActivity(intent);
         }else if (c.equals("States")){
             intent=new Intent(this,States.class);
             startActivity(intent);

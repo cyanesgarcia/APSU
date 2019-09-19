@@ -50,16 +50,16 @@ public class CustomListView extends ArrayAdapter<String>{
         }
         String src= ima.get(position);
 
-        Picasso.with(this.context)
+        Picasso.get()
                 .load(src)
                 .placeholder(null)
                 .resize(250,350)
                 .into(viewHolder.imageView);
 
-        //Picasso.with(this.context).load(src).into(viewHolder.imageView);
+        Picasso.get().load(src).into(viewHolder.imageView);
 
-       // new Bitmap_class(viewHolder.imageView).execute(src);
-       //viewHolder.imageView.setImageURI(Uri.parse((ima.get(position))));
+       new Bitmap_class(viewHolder.imageView).execute(src);
+       viewHolder.imageView.setImageURI(Uri.parse((ima.get(position))));
         viewHolder.textView.setText(STATES.get(position));
 
         return r;

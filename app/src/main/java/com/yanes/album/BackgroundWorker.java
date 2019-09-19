@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -24,6 +25,7 @@ import java.net.URLEncoder;
  */
 
 public class BackgroundWorker extends AsyncTask<String, Void, String> {
+    static int entrar=0;
     Context context;
     AlertDialog alertDialog;
     String check1;
@@ -75,6 +77,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 while((line = bufferedReader.readLine())!= null){
                     result += line;
                 }
+
                 if(result.equals("login not success")){
                     Log.i("1111", "YES");
                 }
@@ -105,12 +108,15 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
 
+
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                 String post_data = URLEncoder.encode("name", "UTF-8")+"="+ URLEncoder.encode(name, "UTF-8")+"&"
                         + URLEncoder.encode("surname", "UTF-8")+"="+ URLEncoder.encode(surname, "UTF-8")+"&"
                         + URLEncoder.encode("age", "UTF-8")+"="+ URLEncoder.encode(age, "UTF-8")+"&"
                         + URLEncoder.encode("username", "UTF-8")+"="+ URLEncoder.encode(username, "UTF-8")+"&"
                         + URLEncoder.encode("password", "UTF-8")+"="+ URLEncoder.encode(password, "UTF-8");
+
+
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -122,6 +128,14 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 while((line = bufferedReader.readLine())!= null){
                     result += line;
                 }
+                Log.i("dddddddd", "entra"+ result);
+                    if(result.equals(" Insert Successful")){
+
+                        entrar = 1;
+                        Log.i("dddddddd", "entra"+  entrar);
+
+                    }
+
                 bufferedReader.close();
                 inputStream.close();
                 httpURLConnection.disconnect();
@@ -145,12 +159,16 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
             Log.i("probar", "1");
 
     }
-public void post(Activity a){
+public void post(Activity a2){
         Log.i("hola", "hola");
     if (login_page.check.equals("Yes") && type.equals("login")) {
 
-            a.startActivity(new Intent(a, MainActivity.class));
-        }
+            a2.startActivity(new Intent(a2, MainActivity.class));
+        }else if(type.equals("register")){
+
+        a2.startActivity(new Intent(a2, login_page.class));
+
+    }
     }
 
     @Override
@@ -159,8 +177,7 @@ public void post(Activity a){
         if(type.equals("login")) {
             if (result != null) {
                 Log.i("String12", "s " + result);
-                String r = result;
-                Log.i("String122", "s " + r);
+
 
                     if (!result.equals(" login not success")) {
                         login_page.check = "Yes";
@@ -179,6 +196,28 @@ public void post(Activity a){
                 post(login_page.a);
             } else {
                 alertDialog.setMessage("The server is inactive, it will wake up in less than 1 hour");
+                alertDialog.show();
+            }
+
+
+        }else if (type.equals("register")){
+            if(entrar == 1) {
+                entrar = 0;
+                alertDialog.setTitle("Register Status");
+                alertDialog.setMessage("Register success");
+                alertDialog.show();
+                Log.i("Registrado", " ");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        post(login_page.a);
+                    }
+                }, 800);
+
+
+            }else{
+                alertDialog.setTitle("Register Status");
+                alertDialog.setMessage("Register not success");
                 alertDialog.show();
             }
 

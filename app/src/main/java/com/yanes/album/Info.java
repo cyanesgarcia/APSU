@@ -235,7 +235,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         mText.setText(Html.fromHtml(fin.getName()));
        ImageView mImagen = (ImageView) mView.findViewById(R.id.i);
         String src= fin.getPhoto();
-        Picasso.with(this)
+        Picasso.get()
                 .load(fin.getPhoto())
                 .placeholder(null)
                 .resize(500,600)

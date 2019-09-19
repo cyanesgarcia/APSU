@@ -25,6 +25,7 @@ import org.json.JSONException;
 
 
 public class Game extends Activity implements NavigationView.OnNavigationItemSelectedListener {
+
         private CircleMenu circleMenu;
         android.support.v7.widget.Toolbar toolbar;
         public static String c = "";
@@ -37,11 +38,11 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
     @Override
     protected void onResume() {
 
-
+/*
         UU u = new UU();
         u.execute();
         textView =(TextView) findViewById(R.id.coin);
-
+*/
 
         super.onResume();
     }
@@ -98,7 +99,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
                                                                  new Handler().postDelayed(new Runnable() {
                                                                      @Override
                                                                      public void run() {
-                                                                         Intent intent = new Intent(Game.this, Game_Blackjack.class);
+                                                                        Intent intent = new Intent(Game.this, Game_Blackjack.class);
                                                                          Game.this.startActivity(intent);
                                                                          Game.this.finish();
                                                                      }

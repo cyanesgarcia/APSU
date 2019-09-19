@@ -17,6 +17,7 @@ import android.widget.Toast;
  */
 
 public class register_page extends Activity implements View.OnClickListener {
+   /// static int entrar=0;
 
     EditText name, surname, age, username, password;
     @Override
@@ -47,20 +48,10 @@ public class register_page extends Activity implements View.OnClickListener {
 
             BackgroundWorker backgroundWorker = new BackgroundWorker(this);
             backgroundWorker.execute(type, str_name, str_surname, str_age, str_username, str_password);
-            AlertDialog alertDialog = new AlertDialog.Builder(register_page.this).create();
-            alertDialog.setTitle("Register Status");
-            alertDialog.setMessage("Register success");
-
-            alertDialog.show();
-          Log.i("Registrado", " ");
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(register_page.this, login_page.class);
-                    startActivity(intent);
-                }
-            }, 800);
+/*
+            Intent intent = new Intent(register_page.this, login_page.class);
+            startActivity(intent);*/
+////////AQUIIIIIIIIIII
 
         }
     }
