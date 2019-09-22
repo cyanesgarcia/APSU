@@ -48,8 +48,8 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... voids) {
         type = voids[0];
-        String login_url = "http://lidiayanesgarcia.000webhostapp.com/login.php";
-        String register_url = "http://lidiayanesgarcia.000webhostapp.com/register.php";
+        String login_url = "https://apalbum.000webhostapp.com/login.php";
+        String register_url = "https://apalbum.000webhostapp.com/register.php";
         Log.i("eeeee4","e");
         if(type.equals("login")){
             try {
@@ -100,7 +100,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 String age = voids[3];
                 String username = voids[4];
                 String password = voids[5];
-
+                Log.i("dddddddd", "ARRIBA3");
                 URL url = new URL(register_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
@@ -115,12 +115,13 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                         + URLEncoder.encode("age", "UTF-8")+"="+ URLEncoder.encode(age, "UTF-8")+"&"
                         + URLEncoder.encode("username", "UTF-8")+"="+ URLEncoder.encode(username, "UTF-8")+"&"
                         + URLEncoder.encode("password", "UTF-8")+"="+ URLEncoder.encode(password, "UTF-8");
-
+                Log.i("dddddddd", "ARRIBA1");
 
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 outputStream.close();
+                Log.i("dddddddd", "ARRIBA");
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
                 String result ="";
@@ -201,7 +202,7 @@ public void post(Activity a2){
 
 
         }else if (type.equals("register")){
-            if(entrar == 1) {
+           if(entrar == 1) {
                 entrar = 0;
                 alertDialog.setTitle("Register Status");
                 alertDialog.setMessage("Register success");
