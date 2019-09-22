@@ -77,7 +77,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 while((line = bufferedReader.readLine())!= null){
                     result += line;
                 }
-
+Log.i("rrrrrrrr", "kkkkkkk" + result);
                 if(result.equals("login not success")){
                     Log.i("1111", "YES");
                 }
@@ -130,7 +130,7 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                     result += line;
                 }
                 Log.i("dddddddd", "entra"+ result);
-                    if(result.equals(" Insert Successful")){
+                    if(result.equals("Insert Successful")){
 
                         entrar = 1;
                         Log.i("dddddddd", "entra"+  entrar);
@@ -180,7 +180,7 @@ public void post(Activity a2){
                 Log.i("String12", "s " + result);
 
 
-                    if (!result.equals(" login not success")) {
+                    if (!result.equals("login not success")) {
                         login_page.check = "Yes";
                         setCheck1("Yes");
 
