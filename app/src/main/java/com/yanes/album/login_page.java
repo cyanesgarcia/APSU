@@ -1,13 +1,19 @@
 package com.yanes.album;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by claud on 6/9/2018.
@@ -26,7 +32,7 @@ public class login_page extends Activity implements View.OnClickListener{
         a= this;
         UsernameEt = (EditText)findViewById(R.id.etUserName);
         PasswordEt = (EditText)findViewById(R.id.etPassword);
-        Button button=(Button) findViewById(R.id.btnRegister);
+        TextView button=(TextView) findViewById(R.id.btnRegister);
         button.setOnClickListener(this);
         Button button1 = (Button) findViewById(R.id.btnLogin);
         button1.setOnClickListener(this);
@@ -48,4 +54,33 @@ public class login_page extends Activity implements View.OnClickListener{
             backgroundWorker.execute(type, username, password);
         }
     }
-}
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final Context mContext = this;
+        // TODO Auto-generated method stub
+        builder.setTitle("Do you want to exit?");
+        builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                finish();
+            }
+        });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                dialog.cancel();
+
+            }
+        });
+
+        AlertDialog alert=builder.create();
+        alert.show();
+        //super.onBackPressed();
+    }
+
+    }

@@ -1,29 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity= "center_horizontal">
 
     <EditText
         android:id="@+id/etUserName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"/>
+        android:layout_marginTop="160dp"
+        android:inputType="textPersonName"
+        android:hint= "Username"
+        android:textSize= "20sp"
+        android:drawableLeft="@drawable/buser"/>
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:hint= "Password"
+        android:textSize= "20sp"
+        android:drawableLeft="@drawable/block"/>
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"/>
+        android:layout_marginTop="20dp"
+        android:text="Login"
+        android:textSize= "20sp"/>
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+    <TextView
+        android:id="@+id/btnRegister1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Registered?"
+        android:textSize= "15sp"/>
+    <TextView
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="Register"
+        android:textSize= "15sp"/>
+    </LinearLayout>
 </LinearLayout>

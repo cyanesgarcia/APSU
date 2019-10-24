@@ -1,6 +1,9 @@
 package com.yanes.album;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -103,7 +106,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
                 }
 
                 start_activity_menu();
-
                 return true;
             }
 
@@ -120,9 +122,11 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         } else if (c.equals("Game")) {
             intent = new Intent(this, Game.class);
             startActivity(intent);
+
         } else if (c.equals("States")) {
             intent = new Intent(this, States.class);
             startActivity(intent);
+
         }
 
     }
@@ -132,6 +136,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         if (view.getId() == R.id.album) {
             Intent intent = new Intent(this, States.class);
             startActivity(intent);
+
 
         } else if (view.getId() == R.id.about_us) {
             Intent intent = new Intent(this, Aboutus.class);
@@ -161,14 +166,14 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
 
         if (id == R.id.nav_album) {
-            Intent intent = new Intent(this, States.class);
-            startActivity(intent);
+
             // Handle the camera action
         } else if (id == R.id.nav_classifications) {
 
         } else if (id == R.id.nav_resources) {
             Intent intent = new Intent(this, Resources.class);
             startActivity(intent);
+
 
         } else if (id == R.id.nav_aboutus) {
             Intent intent = new Intent(this, Aboutus.class);
@@ -188,7 +193,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
         if (requestCode == REQUEST_CODE_ADD) {
 
             if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Cancelled ", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Cancelled ", Toast.LENGTH_SHORT).show();
                 return;
             } else if (resultCode == RESULT_OK) {
 
@@ -206,13 +211,34 @@ public class MainActivity extends Activity implements View.OnClickListener,Navig
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final Context mContext = this;
+        // TODO Auto-generated method stub
+        builder.setTitle("Do you want to close your session?");
+        builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(MainActivity.this, login_page.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                dialog.cancel();
+
+            }
+        });
+
+        AlertDialog alert=builder.create();
+        alert.show();
+        //super.onBackPressed();
     }
 
     public class getData extends AsyncTask<String, Void, String> {

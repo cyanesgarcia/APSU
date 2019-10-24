@@ -4,12 +4,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toolbar;
+
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -36,19 +41,21 @@ import java.util.ArrayList;
 
 public class States extends Activity implements AdapterView.OnItemClickListener{
 
-    public static String State;
+    public static String Sport;
     Toolbar toolbar;
     ListView lv;
     String result;
     InputStream isr;
     String check="no";
+    public static String c = "";
+
     final static ArrayList<String> STATES =new ArrayList<>();
     final static ArrayList<String> ima = new ArrayList<>();
     ArrayAdapter<String> adapter;
     @Override
     protected void onResume() {
-        toolbar=(Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(MainActivity.total + " coins");
+       // toolbar=(Toolbar) findViewById(R.id.toolbar);
+       // toolbar.setTitle(MainActivity.total + " coins");
         super.onResume();
 
         getData updateTask = new getData();
@@ -67,18 +74,54 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
         adapter=new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, STATES
         );
-        adapter= new ArrayAdapter<String>(
+       adapter= new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, ima
         );
         lv.setOnItemClickListener(this);
+        /*BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Log.i("lleganav", "hh"+c);
+                if (item.getItemId() == R.id.HomeItem) {
+                    c= "MainActivity";
+                } else if (item.getItemId() == R.id.GameItem) {
+                    c="Game";
+                }  else if (item.getItemId() == R.id.AlbumItem) {
+                    c="States";
+                }
+
+                start_activity_menu();
+
+                return true;
+            }
+
+        });*/
+
+    }
+    public void start_activity_menu(){
+        Intent intent = null;
+        if(c.equals("MainActivity")){
+
+
+        }else if(c.equals("Game")){
+            intent=new Intent(this,Game.class);
+            startActivity(intent);
+
+        }else if (c.equals("States")){
+            intent=new Intent(this,States.class);
+            startActivity(intent);
+
+        }
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-        State = (String) adapterView.getItemAtPosition(i);
+        Sport = (String) adapterView.getItemAtPosition(i);
         Intent intent=new Intent(this,type.class);
         startActivity(intent);
+
     }
 
     private class getData extends AsyncTask<String, Void, String> {
@@ -87,7 +130,8 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
         protected String doInBackground(String... params) {
             result = "";
             isr = null;
-            String state_url = "https://lidiayanesgarcia.000webhostapp.com/php2.php";
+
+            String state_url = "https://apalbum.000webhostapp.com/php3.php";
             try {
 
                 HttpClient httpclient = new DefaultHttpClient();
@@ -105,7 +149,6 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
 
 
 
-
             //convert response to string
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(isr, "iso-8859-1"), 8);
@@ -114,6 +157,7 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
                 while ((line = reader.readLine()) != null) {
                     sb.append(line + "\n");
                 }
+
                 isr.close();
 
                 result = sb.toString();
@@ -123,7 +167,6 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
 
 
             try {
-
 
                 JSONArray jArray = new JSONArray(result);
 
@@ -136,20 +179,22 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
 
 
                    for(int ii=0; ii<STATES.size(); ii++) {
-                       if (STATES.get(ii).equals(json.getString("State"))) {
+                       if (STATES.get(ii).equals(json.getString("name"))) {
                            check="si";
                        }
                    }
 
 
                    if(check.equals("no")) {
-                            STATES.add(json.getString("State"));
+                            STATES.add(json.getString("name"));
+                            ima.add(json.getString("icon"));
                         }
 
                         check="no";
                 //}
 
-                    ima.add(json.getString("SImage"));
+
+
 
                 }
 
@@ -163,16 +208,18 @@ public class States extends Activity implements AdapterView.OnItemClickListener{
 
         @Override
         protected void onPostExecute(String result) {
-            //tv.setText(""+Data);
-           CustomListView customListView = new CustomListView(States.this,STATES,ima);
+            Log.i("comooooooo", "3333333333333333333");
+           CustomListView customListView = new CustomListView(States.this,STATES, ima);
             lv.setAdapter(customListView);
+            Log.i("comooooooo", "44444444444");
 
         }
 
+
         @Override
         protected void onPreExecute() {
-           //STATES.clear();
-          // ima.clear();
+          // STATES.clear();
+           //ima.clear();
 
         }
 

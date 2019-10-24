@@ -2,6 +2,7 @@ package com.yanes.album;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
  * Created by LidiayClaudia on 28/04/2018.
  */
 
+
 public class type extends Activity implements AdapterView.OnItemClickListener {
     int count= 0;
     public static String Type;
@@ -37,13 +39,13 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
     String check="no";
     InputStream isr;
     final static ArrayList<String> TYPES =new ArrayList<>();
-   final static ArrayList<String> ima1 = new ArrayList<>();
+    final static ArrayList<String> ima1 = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
     @Override
     protected void onResume() {
-        toolbar=(Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(MainActivity.total + " coins");
+        //toolbar=(Toolbar) findViewById(R.id.toolbar);
+        // toolbar.setTitle(MainActivity.total + " coins");
         super.onResume();
 
 
@@ -56,12 +58,12 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.s_t);
 
-         lv = (ListView) findViewById(R.id.listview);
+        lv = (ListView) findViewById(R.id.listview);
 
         adapter=new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, TYPES
         );
-       adapter= new ArrayAdapter<String>(
+        adapter= new ArrayAdapter<String>(
                 this, android.R.layout.simple_list_item_1, ima1
         );
         lv.setOnItemClickListener(this);
@@ -72,8 +74,8 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Type = (String) adapterView.getItemAtPosition(i);
-        Intent intent=new Intent(this,Info.class);
-       startActivity(intent);
+       Intent intent=new Intent(this,Info.class);
+        startActivity(intent);
     }
 
     private class getData extends AsyncTask<String, Void, String> {
@@ -83,7 +85,7 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
         protected String doInBackground(String... params) {
             result = "";
             isr = null;
-            String type_url ="https://lidiayanesgarcia.000webhostapp.com/php3.php";
+            String type_url ="https://apalbum.000webhostapp.com/php2.php";
             try {
 
                 HttpClient httpclient = new DefaultHttpClient();
@@ -128,21 +130,19 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
                     // Data=Data+"\n"+  json.getString("State");
                     // Log.i("aqui","str" + json.getString("State"));
                     for(int ii=0; ii<TYPES.size(); ii++) {
-                        if (TYPES.get(ii).equals(json.getString("Type"))) {
+                        if (TYPES.get(ii).equals(json.getString("categories"))) {
                             check="si";
                         }
                     }
 
 
                     if(check.equals("no")) {
-                    TYPES.add(json.getString("Type"));
+                        TYPES.add(json.getString("categories"));
+                        ima1.add(json.getString("icon"));
                     }
 
                     check="no";
 
-
-                    ima1.add(json.getString("TImage"));
-                   //ima1.add(json.getString("TImage"));
 
                 }
 
@@ -159,15 +159,15 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
             //tv.setText(""+Data);
 
             if(count==0){
-            CustomListView customListView = new CustomListView(type.this,TYPES,ima1);
-            lv.setAdapter(customListView);}
+                CustomListView customListView = new CustomListView(type.this,TYPES, ima1);
+                lv.setAdapter(customListView);}
             count++;
         }
 
         @Override
         protected void onPreExecute() {
             //TYPES.clear();
-          //  ima1.clear();
+            //  ima1.clear();
         }
 
         @Override

@@ -89,7 +89,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
                                                                      public void run() {
                                                                          Intent intent = new Intent(Game.this, Game_simon.class);
                                                                          Game.this.startActivity(intent);
-                                                                         Game.this.finish();
+                                                                         //Game.this.finish();
                                                                      }
                                                                  }, 1000);
 
@@ -101,7 +101,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
                                                                      public void run() {
                                                                         Intent intent = new Intent(Game.this, Game_Blackjack.class);
                                                                          Game.this.startActivity(intent);
-                                                                         Game.this.finish();
+                                                                        // Game.this.finish();
                                                                      }
                                                                  }, 1000);
 
@@ -113,7 +113,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
                                                                       public void run() {
                                                                           Intent intent = new Intent(Game.this, RockPaperScissors.class);
                                                                           Game.this.startActivity(intent);
-                                                                          Game.this.finish();
+                                                                        //  Game.this.finish();
                                                                       }
                                                                   }, 1000);
                                                                  break;
@@ -156,8 +156,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
                 intent=new Intent(this,MainActivity.class);
                 startActivity(intent);
             }else if(c.equals("Game")){
-                intent=new Intent(this,Game.class);
-                startActivity(intent);
+
             }else if (c.equals("States")){
                 intent=new Intent(this,States.class);
                 startActivity(intent);
@@ -200,7 +199,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START);
             } else {
-                super.onBackPressed();
+                //super.onBackPressed();
             }
 
             if (circleMenu.isOpened())
@@ -229,6 +228,7 @@ public class Game extends Activity implements NavigationView.OnNavigationItemSel
                 return null;
             }
         }
+
         }
 
 

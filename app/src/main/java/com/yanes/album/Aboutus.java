@@ -35,6 +35,7 @@ public class Aboutus extends Activity implements NavigationView.OnNavigationItem
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -79,16 +80,21 @@ public class Aboutus extends Activity implements NavigationView.OnNavigationItem
         if (id == R.id.nav_album) {
             Intent intent=new Intent(this, States.class);
             startActivity(intent);
+            finish();
+
             // Handle the camera action
         } else if (id == R.id.nav_classifications) {
 
         } else if (id == R.id.nav_resources) {
             Intent intent=new Intent(this, Resources.class);
             startActivity(intent);
+            finish();
+
 
         } else if (id == R.id.nav_aboutus) {
             Intent intent=new Intent(this, Aboutus.class);
             startActivity(intent);
+            finish();
 
         }
 
@@ -103,7 +109,7 @@ public class Aboutus extends Activity implements NavigationView.OnNavigationItem
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
         }
 
     }

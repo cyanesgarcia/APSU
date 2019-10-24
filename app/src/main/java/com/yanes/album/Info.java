@@ -2,9 +2,11 @@ package com.yanes.album;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -42,7 +44,6 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
     private AlertDialog dialog;
     private int card_key= 100;
     private Album fin;
-
     ListView lv;
     String result;
     InputStream isr;
@@ -53,8 +54,8 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
     protected void onResume() {
         super.onResume();
 
-      getData updateTask = new getData();
-       updateTask.execute();
+        getData updateTask = new getData();
+        updateTask.execute();
 
     }
 
@@ -67,7 +68,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
 
 
         lv = (ListView) findViewById(R.id.listview);
-        lv.setBackgroundColor(Color.parseColor("#4597CD"));
+       // lv.setBackgroundColor(Color.parseColor("#4597CD"));
 
         //src= "http://images.nationalgeographic.com.es/medio/2016/02/23/8def375banciano_arbol_de_bataszek_hungria_1000x750.jpg";
         //new Bitmap_class(iv).execute(src);
@@ -76,8 +77,6 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         for(int count=0; count <MainActivity.position.size();count++) {
             Log.i("numero", "count "+count);
             MainActivity.position.get(count).setBackgroundColor(Color.RED);
-
-
         }*/
 
         adapter = new ArrayAdapter<Album>(
@@ -100,7 +99,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
             isr = null;
             try {
                 HttpClient httpclient = new DefaultHttpClient();
-                HttpPost httppost = new HttpPost("https://lidiayanesgarcia.000webhostapp.com/php1.php"); //YOUR PHP SCRIPT ADDRESS
+                HttpPost httppost = new HttpPost("https://apalbum.000webhostapp.com/php1.php"); //YOUR PHP SCRIPT ADDRESS
                 HttpResponse response = httpclient.execute(httppost);
                 HttpEntity entity = response.getEntity();
                 isr = entity.getContent();
@@ -126,40 +125,65 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
             }
 
 
-            try {
+                try {
 
 
-                JSONArray jArray = new JSONArray(result);
+                    JSONArray jArray = new JSONArray(result);
 
-                for (int i = 0; i < jArray.length(); i++) {
-                    JSONObject json = jArray.getJSONObject(i);
+                    for (int i = 0; i < jArray.length(); i++) {
+                        JSONObject json = jArray.getJSONObject(i);
 
+                        if ("Schedule".equals(type.Type)) {
+                            String url = json.getString("info");
+                           // Log.i("sddddddddddddkkkkddd","ddddddddddd"+url );
 
-                    Album a = new Album(json.getString("State"),json.getString("Type"),json.getString("Name"),json.getString("Description"),json.getString("Photo"));
-                    if(json.getString("State").equals( States.State )&& json.getString("Type").equals( type.Type)) {
-                        lista.add(a);
+                            Uri uri= Uri.parse(url);
+                            Intent intent= new Intent(Intent.ACTION_VIEW, uri);
+                            startActivity(intent);
+                            break;
+                        }
+                        Album a = new Album(json.getString("name"), json.getString("sport"), json.getString("type"), json.getString("class"), json.getString("info"), json.getString("icon"));
+                       if (json.getString("sport").equals(States.Sport) && json.getString("type").equals(type.Type)) {
+                            lista.add(a);
+                        }
                     }
+
+                } catch (Exception e) {
+                    // TODO: handle exception
+
+                    Log.e("log_tag", "Error Parsing Data " + e.toString());
                 }
 
-            } catch (Exception e) {
-                // TODO: handle exception
 
-                Log.e("log_tag", "Error Parsing Data " + e.toString());
-            }
             return "Executed";
 
         }
 
         @Override
         protected void onPostExecute(String result) {
-            lv.setAdapter(adapter);
-        }
+           // lv.setAdapter(adapter);
+        //    if(count==0){
+
+            ArrayList<String> names = new ArrayList<>();
+            ArrayList<String> icons = new ArrayList<>();
+
+            for(int i=0; i<lista.size();i++){
+                names.add(lista.get(i).getName());
+                icons.add(lista.get(i).getIcon());
+
+            }
+
+                CustomListView customListView = new CustomListView(Info.this,names,icons);
+                lv.setAdapter(customListView);}
+           // count++;
+       // }
 
 
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
+
         dialog = new AlertDialog.Builder(this).create();
         fin = (Album)adapter.getItem(position);
 
@@ -186,7 +210,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
 
                     if(MainActivity.total<=5 ){
                         MainActivity.position.add(view);
-                       MainActivity.check.add(fin.getName());
+                        MainActivity.check.add(fin.getName());
                         //view.setBackgroundColor(Color.RED);
                         MainActivity.total -= 5;
                         card_key = 1;
@@ -213,15 +237,15 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
 
     }
     public void f(){
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         if(card_key==1) {
 
-            MyCustomAlertDialog(new Album(fin.getState(),fin.getType(),fin.getName(),fin.getDescription(), fin.getPhoto()));
+            MyCustomAlertDialog(new Album(fin.getName(),fin.getSport(), fin.getType(),fin.getClass1(), fin.getInfo(), fin.getIcon()));
 
         }else{
 
-            MyCustomAlertDialog(new Album("????", "????", "????", "????","????" ));
+            MyCustomAlertDialog(new Album("????", "????", "????", "????","????", "????" ));
         }
     }
 
@@ -233,16 +257,16 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         TextView mText = (TextView)mView.findViewById(R.id.title);
         mText.setText(Html.fromHtml(fin.getName()));
-       ImageView mImagen = (ImageView) mView.findViewById(R.id.i);
-        String src= fin.getPhoto();
+        ImageView mImagen = (ImageView) mView.findViewById(R.id.i);
+        String src= fin.getIcon();
         Picasso.get()
-                .load(fin.getPhoto())
+                .load(fin.getIcon())
                 .placeholder(null)
                 .resize(500,600)
                 .into(mImagen);
         TextView mText2 = (TextView) mView.findViewById(R.id.title2);
-        mText2.setText(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName() + "</p>" + "<p><b>State: </b>" + fin.getState() + "</p>" +
-                "<p><b>Type: </b>" + fin.getType() + "</p>" + "<p><b>Description: </b>" + fin.getDescription() + "</p>" + "</html>"));
+        mText2.setText(Html.fromHtml("<html>" + "<p><b>Name: </b>" + fin.getName() + "</p>" + "<p><b>Sport: </b>" + fin.getSport() + "</p>" +
+                "<p><b>Class: </b>" + fin.getClass1() + "</p>" + "<p><b>Description: </b>" + fin.getInfo() + "</p>" + "</html>"));
 
 
 
@@ -253,17 +277,17 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
         mView.findViewById(R.id.imgFrontCard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               easyFlipView.flipTheView();
+                easyFlipView.flipTheView();
             }
         });
 
-       mView.findViewById(R.id.imgBackCard).setOnClickListener(new View.OnClickListener() {
+        mView.findViewById(R.id.imgBackCard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               easyFlipView.flipTheView();
+                easyFlipView.flipTheView();
             }
         });
-       mBuilder.setView(mView);
+        mBuilder.setView(mView);
         AlertDialog dialog = mBuilder.create();
         dialog.show();
 
@@ -279,6 +303,5 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
     }
 
 }
-
 
 

@@ -3,7 +3,9 @@ package com.yanes.album;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -54,5 +56,35 @@ public class register_page extends Activity implements View.OnClickListener {
 ////////AQUIIIIIIIIIII
 
         }
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final Context mContext = this;
+        // TODO Auto-generated method stub
+        // builder.setCancelable(false);
+        builder.setTitle("Do you want to quit your registration?");
+        builder.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Toast.makeText(mContext, "You exited without any record", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                dialog.cancel();
+
+            }
+        });
+
+        AlertDialog alert=builder.create();
+        alert.show();
+        //super.onBackPressed();
     }
 }

@@ -95,18 +95,25 @@ Log.i("rrrrrrrr", "kkkkkkk" + result);
         }else if(type.equals("register")){
             try {
                 Log.i("eeeee6","e");
+                Log.i("ccccccccu", "entrar7 "+ voids[1]);
                 String name = voids[1];
                 String surname = voids[2];
                 String age = voids[3];
                 String username = voids[4];
                 String password = voids[5];
+                Log.i("ccccccccu", "entrar11 "+ voids[1]);
                 Log.i("dddddddd", "ARRIBA3");
                 URL url = new URL(register_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                Log.i("ccccccccu", "entrar12 ");
                 httpURLConnection.setRequestMethod("POST");
+                Log.i("ccccccccu", "entrar12.1 ");
                 httpURLConnection.setDoOutput(true);
+                Log.i("ccccccccu", "entrar12.2 ");
                 httpURLConnection.setDoInput(true);
+                Log.i("ccccccccu", "entrar12.3 ");
                 OutputStream outputStream = httpURLConnection.getOutputStream();
+                Log.i("ccccccccu", "entrar13 ");
 
 
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
@@ -116,20 +123,24 @@ Log.i("rrrrrrrr", "kkkkkkk" + result);
                         + URLEncoder.encode("username", "UTF-8")+"="+ URLEncoder.encode(username, "UTF-8")+"&"
                         + URLEncoder.encode("password", "UTF-8")+"="+ URLEncoder.encode(password, "UTF-8");
                 Log.i("dddddddd", "ARRIBA1");
+                Log.i("ccccccccu", "entrar14 ");
 
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 outputStream.close();
+                Log.i("ccccccccu", "entrar15 ");
                 Log.i("dddddddd", "ARRIBA");
                 InputStream inputStream = httpURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
                 String result ="";
                 String line ="";
+                Log.i("ccccccccu", "entrar0 "+ result);
                 while((line = bufferedReader.readLine())!= null){
                     result += line;
                 }
                 Log.i("dddddddd", "entra"+ result);
+                Log.i("ccccccccu", "entrar "+ result);
                     if(result.equals("Insert Successful")){
 
                         entrar = 1;
@@ -165,7 +176,9 @@ public void post(Activity a2){
     if (login_page.check.equals("Yes") && type.equals("login")) {
 
             a2.startActivity(new Intent(a2, MainActivity.class));
-        }else if(type.equals("register")){
+            a2.finish();
+
+    }else if(type.equals("register")){
 
         a2.startActivity(new Intent(a2, login_page.class));
 
@@ -202,6 +215,7 @@ public void post(Activity a2){
 
 
         }else if (type.equals("register")){
+            Log.i("ccccccccu", "entrar2 "+ entrar);
            if(entrar == 1) {
                 entrar = 0;
                 alertDialog.setTitle("Register Status");

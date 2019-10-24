@@ -213,12 +213,18 @@ public class Resources extends Activity implements  NavigationView.OnNavigationI
         if(c.equals("MainActivity")){
             intent=new Intent(this,MainActivity.class);
             startActivity(intent);
+            finish();
+
         }else if(c.equals("Game")){
-          //  intent=new Intent(this,Game.class);
-          //  startActivity(intent);
+           intent=new Intent(this,Game.class);
+           startActivity(intent);
+            finish();
+
         }else if (c.equals("States")){
             intent=new Intent(this,States.class);
             startActivity(intent);
+            finish();
+
         }
 
     }
@@ -261,7 +267,7 @@ public String goToUrl(String st){
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+           // super.onBackPressed();
         }
 
     }
