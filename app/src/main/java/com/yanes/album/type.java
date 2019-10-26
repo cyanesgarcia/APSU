@@ -177,4 +177,10 @@ public class type extends Activity implements AdapterView.OnItemClickListener {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(this,States.class);
+        startActivity(intent);
+
+    }
 }

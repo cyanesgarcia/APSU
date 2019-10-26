@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
+import org.apache.http.HttpConnection;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -34,6 +35,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -41,6 +43,7 @@ import java.util.ArrayList;
  */
 
 public class Info extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    int sum=0;
     private AlertDialog dialog;
     private int card_key= 100;
     private Album fin;
@@ -53,7 +56,7 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
     @Override
     protected void onResume() {
         super.onResume();
-
+sum++;
         getData updateTask = new getData();
         updateTask.execute();
 
@@ -63,8 +66,6 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_union);
-
-
 
 
         lv = (ListView) findViewById(R.id.listview);
@@ -133,20 +134,29 @@ public class Info extends AppCompatActivity implements AdapterView.OnItemClickLi
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json = jArray.getJSONObject(i);
 
-                        if ("Schedule".equals(type.Type)) {
-                            String url = json.getString("info");
-                           // Log.i("sddddddddddddkkkkddd","ddddddddddd"+url );
 
-                            Uri uri= Uri.parse(url);
-                            Intent intent= new Intent(Intent.ACTION_VIEW, uri);
+                        String test = json.getString("info");
+
+                        Log.i("hhhhhhhhhhhhhhhhhhh",  test.substring(0,3));
+                        if (("Schedule".equals(json.getString("type")) && (sum == 1) && type.Type.equals("Schedule"))) {
+
+                            String url = json.getString("info");
+                           Log.i("hooooooooooooo","ddddddddddd"+url );
+
+                            Uri uri = Uri.parse(url);
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                             startActivity(intent);
-                            break;
+
+                        }else if("Schedule".equals(json.getString("type")) && type.Type.equals("Schedule")) {
+                            Intent intent=new Intent(Info.this,type.class);
+                            startActivity(intent);
+                        }else{
+                                Album a = new Album(json.getString("name"), json.getString("sport"), json.getString("type"), json.getString("class"), json.getString("info"), json.getString("icon"));
+                                if (json.getString("sport").equals(States.Sport) && json.getString("type").equals(type.Type)) {
+                                    lista.add(a);
+                                }
+                            }
                         }
-                        Album a = new Album(json.getString("name"), json.getString("sport"), json.getString("type"), json.getString("class"), json.getString("info"), json.getString("icon"));
-                       if (json.getString("sport").equals(States.Sport) && json.getString("type").equals(type.Type)) {
-                            lista.add(a);
-                        }
-                    }
 
                 } catch (Exception e) {
                     // TODO: handle exception
